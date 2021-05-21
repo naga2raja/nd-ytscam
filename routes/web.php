@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/subscribe-now/{planId}', 'App\Http\Controllers\SubscriptionController@subscribeNow');
     Route::resource('/define-spam-words', 'App\Http\Controllers\DefineSpamController', ['names' => ['index' =>'spamwords.list']]);
+    Route::resource('/no-spam-words', 'App\Http\Controllers\NoSpamWordController');
 
 });
     Route::get('/log_out', 'App\Http\Controllers\VideoController@logout')->name('log_out');

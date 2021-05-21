@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\YoutubeApiRequest;
 use App\Models\UserSubscription;
 use App\Models\UserSpamWord;
+use App\Models\UserNoSpamWord;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -475,6 +476,7 @@ class VideoController extends Controller
 
     		$isSpam = $this->findSpamTextinSentence($comment); 
     		$isDefinedSpam = $this->checkUserDefinedSpam($comment); 
+    		$isNoSpam = $this->checkUserDefinedNoSpam($comment); 
 
     		// $out[] = $value['snippet']['topLevelComment']['snippet']['textDisplay'] . ' => '.$sentimentalStatus;
 
@@ -490,7 +492,7 @@ class VideoController extends Controller
     		if($isDefinedSpam) {
 
     		} else {
-	    		if($sentimentalStatus == 'pos' && !$isSpam) {
+	    		if(($sentimentalStatus == 'pos' && !$isSpam) || $isNoSpam) {
 	    			unset($output[$key]);
 	    		}    			
     		}
@@ -502,6 +504,42 @@ class VideoController extends Controller
     {
     	session_destroy();
 		Auth::logout();
+
+		$OAUTH2_CLIENT_ID = Config('services.google.client_id');
+		$OAUTH2_CLIENT_SECRET = Config('services.google.client_secret');
+		// dd($OAUTH2_CLIENT_SECRET);
+
+		$client = new Google_Client();
+		$client->setClientId($OAUTH2_CLIENT_ID);
+		$client->setClientSecret($OAUTH2_CLIENT_SECRET);
+		$client->setAccessType('offline');
+		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
+		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		    FILTER_SANITIZE_URL);
+		$client->setRedirectUri($redirect);
+
+		// Define an object that will be used to make all API requests.
+		$youtube = new Google_Service_YouTube($client);
+		$tokenSessionKey = 'token-' . $client->prepareScopes();
+		if (isset($_GET['code'])) {
+		  if (strval($_SESSION['state']) !== strval($_GET['state'])) {
+		    //die('The session state did not match.');
+		  }
+
+		  $client->authenticate($_GET['code']);
+		  $_SESSION[$tokenSessionKey] = $client->getAccessToken();
+		 // return redirect('video');
+		  // header('Location: ' . $redirect);
+		}
+
+		if (isset($_SESSION[$tokenSessionKey])) {
+		  $client->setAccessToken($_SESSION[$tokenSessionKey]);
+		}
+
+		$_SESSION[$tokenSessionKey] = $client->getAccessToken();
+		$client->revokeToken(@$_SESSION[$tokenSessionKey]);
+
+
 	  	return redirect('/login');
     }
 
@@ -595,10 +633,33 @@ class VideoController extends Controller
   		return $out;
   }
 
+
+
+  public function checkUserDefinedNoSpam($string) {
+  		$sentenceWords = explode(' ', $string);
+  		$result = UserNoSpamWord::where('user_id', Auth::user()->id)
+  				->whereIn('word', $sentenceWords)
+  				->first();
+  		$out = false;
+  		if($result) {
+  			$out = true; // yes its spam
+  		} else {
+  			$spamTextArr = UserNoSpamWord::where('user_id', Auth::user()->id)->select('word')->get()->toArray();
+  			$key = array_search($string, $spamTextArr);
+
+  			if (false !== $key)
+			{
+				$out = true;
+			}
+  		}
+  		return $out;
+  }
+
   public function details(Request $request, $videoId)
   {
   	$spamWords = UserSpamWord::where('user_id', Auth::user()->id)->selectRaw('GROUP_CONCAT(" ", spam_word, " ") as spam_words')->first();
-  	return view('video-details', compact('videoId', 'spamWords'));
+  	$noSpamWords = UserNoSpamWord::where('user_id', Auth::user()->id)->selectRaw('GROUP_CONCAT(" ", word, " ") as spam_words')->first();
+  	return view('video-details', compact('videoId', 'spamWords', 'noSpamWords'));
   }
 
 }

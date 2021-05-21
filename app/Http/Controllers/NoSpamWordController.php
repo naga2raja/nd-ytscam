@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserSpamWord;
+use App\Models\UserNoSpamWord;
 use Auth;
 use App\Http\Controllers\VideoController;
 
-class DefineSpamController extends Controller
+class NoSpamWordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +17,16 @@ class DefineSpamController extends Controller
      */
     public function index(Request $request)
     {
-        $spamWords = UserSpamWord::where('user_id', Auth::user()->id);
+        $spamWords = UserNoSpamWord::where('user_id', Auth::user()->id);
 
         $searchValue = '';
         if($request->search) {
             $searchValue = $request->search;
-            $spamWords = $spamWords->where('spam_word', 'LIKE', '%'.$searchValue.'%');
+            $spamWords = $spamWords->where('word', 'LIKE', '%'.$searchValue.'%');
 
         }
         $spamWords = $spamWords->paginate(10);
-        return view('spam/list', compact('spamWords', 'searchValue'));
+        return view('no-spam/list', compact('spamWords', 'searchValue'));
     }
 
     /**
@@ -35,7 +36,7 @@ class DefineSpamController extends Controller
      */
     public function create()
     {
-        $spamWords = UserSpamWord::where('user_id', Auth::user()->id)->get()->toArray();
+        $spamWords = UserNoSpamWord::where('user_id', Auth::user()->id)->get()->toArray();
         $videoCtrl  = new VideoController;
         $plan = $videoCtrl->getCurrentSubscriptionPlan();
         $spamCount = $plan->custom_spam_count;
@@ -43,7 +44,7 @@ class DefineSpamController extends Controller
         if(count($spamWords) >= $plan->custom_spam_count) {
             $isPlanExpired = true;
         }
-        return view('spam/create', compact('spamWords', 'isPlanExpired'));
+        return view('no-spam/create', compact('spamWords', 'isPlanExpired'));
     }
 
     /**
@@ -57,19 +58,19 @@ class DefineSpamController extends Controller
         $request->validate([
             'spam_text' => 'required',
         ]);
-        $spamWordsExists = UserSpamWord::where('user_id', Auth::user()->id)
-                        ->where('spam_word', $request->spam_text)
+        $spamWordsExists = UserNoSpamWord::where('user_id', Auth::user()->id)
+                        ->where('word', $request->spam_text)
                         ->first();
         if($spamWordsExists) {
-            return back()->withErrors(['Word already exists'])->with('error','Word already exists');
+            return back()->withErrors(['Word already exists'])->with('error', 'Word already exists');
         }
 
-        $spamText = new UserSpamWord;
+        $spamText = new UserNoSpamWord;
         $spamText->user_id = Auth::user()->id;
-        $spamText->spam_word = $request->spam_text;
+        $spamText->word = $request->spam_text;
         $spamText->status = 1;
         $spamText->save();
-        return redirect('define-spam-words')->with('message','Added Successfully');
+        return redirect('no-spam-words')->with('message','Added Successfully');
     }
 
     /**
@@ -91,10 +92,10 @@ class DefineSpamController extends Controller
      */
     public function edit($id)
     {
-        $spamWord = UserSpamWord::where('user_id', Auth::user()->id)
+        $spamWord = UserNoSpamWord::where('user_id', Auth::user()->id)
                         ->where('id', $id)
                         ->first();
-        return view('spam/edit', compact('spamWord'));
+        return view('no-spam/edit', compact('spamWord'));
     }
 
     /**
@@ -109,14 +110,14 @@ class DefineSpamController extends Controller
         $request->validate([
             'spam_text' => 'required',
         ]);
-        $spamText = UserSpamWord::where('user_id', Auth::user()->id)
+        $spamText = UserNoSpamWord::where('user_id', Auth::user()->id)
                         ->where('id', $id)
                         ->first();
         $spamText->user_id = Auth::user()->id;
-        $spamText->spam_word = $request->spam_text;
+        $spamText->word = $request->spam_text;
         $spamText->status = 1;
         $spamText->save();
-        return redirect('define-spam-words')->with('message','Updated Successfully');
+        return redirect('no-spam-words')->with('message','Updated Successfully');
     }
 
     /**
@@ -127,10 +128,10 @@ class DefineSpamController extends Controller
      */
     public function destroy($id)
     {
-        $spamWord = UserSpamWord::where('user_id', Auth::user()->id)
+        $spamWord = UserNoSpamWord::where('user_id', Auth::user()->id)
                         ->where('id', $id)
                         ->first();
         $spamWord->delete();        
-        return redirect('define-spam-words')->with('message','Deleted Successfully');
+        return redirect('no-spam-words')->with('message','Deleted Successfully');
     }
 }

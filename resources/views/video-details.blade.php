@@ -24,10 +24,17 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             @if($spamWords && $spamWords->spam_words)
                 <div class="alert alert-warning" role="alert">
                         <strong>Custom Words:</strong> {{ $spamWords->spam_words }} 
+                </div>
+            @endIf
+        </div>
+        <div class="col-md-6">
+            @if($noSpamWords && $noSpamWords->spam_words)
+                <div class="alert alert-info" role="alert">
+                        <strong>No Spam Words:</strong> {{ $noSpamWords->spam_words }} 
                 </div>
             @endIf
         </div>

@@ -30,6 +30,11 @@
             {{ __('Custom Words') }}
           </x-nav-link>
         </li>
+        <li class="nav-item {{ request()->routeIs('no-spam-words.index') ? 'active' : '' }}">
+          <x-nav-link :href="route('no-spam-words.index')" :active="request()->routeIs('no-spam-words.index')" class="nav-link">
+            {{ __('No Spam Words') }}
+          </x-nav-link>
+        </li>
       
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,14 +69,15 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <div class="dropdown-item">
-            <form method="POST" action="{{ route('logout') }}">
+            <!-- <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <x-dropdown-link :href="route('logout')" class="dropdown-item"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
                     {{ __('Log out') }}
                 </x-dropdown-link>
-            </form>
+            </form> -->
+                <a href="/log_out" class="dropdown-item"> Logout</a>
           </div> 
         </div>
       </div>
