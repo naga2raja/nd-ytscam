@@ -504,11 +504,8 @@ class VideoController extends Controller
     {
     	session_destroy();
 		Auth::logout();
-
 		$OAUTH2_CLIENT_ID = Config('services.google.client_id');
 		$OAUTH2_CLIENT_SECRET = Config('services.google.client_secret');
-		// dd($OAUTH2_CLIENT_SECRET);
-
 		$client = new Google_Client();
 		$client->setClientId($OAUTH2_CLIENT_ID);
 		$client->setClientSecret($OAUTH2_CLIENT_SECRET);
@@ -525,21 +522,15 @@ class VideoController extends Controller
 		  if (strval($_SESSION['state']) !== strval($_GET['state'])) {
 		    //die('The session state did not match.');
 		  }
-
 		  $client->authenticate($_GET['code']);
 		  $_SESSION[$tokenSessionKey] = $client->getAccessToken();
-		 // return redirect('video');
-		  // header('Location: ' . $redirect);
 		}
 
 		if (isset($_SESSION[$tokenSessionKey])) {
 		  $client->setAccessToken($_SESSION[$tokenSessionKey]);
 		}
-
 		$_SESSION[$tokenSessionKey] = $client->getAccessToken();
 		$client->revokeToken(@$_SESSION[$tokenSessionKey]);
-
-
 	  	return redirect('/login');
     }
 

@@ -63,7 +63,7 @@
     </form> -->
   </div>
   <div class="col-md-3">
-      <div class="dropdown pull-right">
+      <div class="dropdown pull-right logout_button">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            {{ Auth::user()->name }}  
         </button>
@@ -98,3 +98,14 @@
       </div>
   </div>
 </nav>
+<script type="text/javascript">
+  var dd = 0;
+  $('.logout_button #dropdownMenuButton').click(function() {  
+    if(dd == 0)   {
+      $('.dropdown').addClass("show");          
+      $('.dropdown-menu').addClass("show");          
+      console.log(dd);      
+    }
+    dd++;
+  })
+</script>
