@@ -1,10 +1,19 @@
 <x-app-layout>    
     <x-slot name="header">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Dashboard</li>
-          </ol>
-        </nav>
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Dashboard</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item active"><a href="#">Home</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
     </x-slot>
     <style type="text/css">       
         /*.video_item.active{ background: #000; }*/
@@ -121,7 +130,7 @@
                 $.ajax({
                     method: 'POST',
                     url: '/channel/videos/' + id,
-                    data: JSON.stringify({'channel_id': id,  'type': type, 'token' : token }),
+                    data: JSON.stringify({'channel_id': id,  'type': type, 'token' : token, '_token': '{{ csrf_token() }}' }),
                     dataType: "json",
                     contentType: 'application/json',
                     success: function(result){
@@ -165,7 +174,7 @@
                     },
                     error: function(xhr, status, error) {                      
                       alert('Your session has been Expired!');
-                      window.location = "/log_out";
+                      //window.location = "/log_out";
                       $('.loading').hide();
                     }
                 });

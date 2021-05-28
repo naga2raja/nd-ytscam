@@ -19,10 +19,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ themeAsset('plugins/fontawesome-free/css/all.min.css') }}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ themeAsset('dist/css/adminlte.min.css') }}">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" type="text/css" 
@@ -31,6 +34,7 @@
         
 
 <style>
+/* 
 * {box-sizing: border-box;}
 
 body { 
@@ -129,7 +133,7 @@ footer {
 
 .appName{
     
-}
+}*/
 
  /* Absolute Center Spinner */
 .loading {
@@ -259,27 +263,38 @@ header.bg-white.shadow + main {
 </style>
 
     </head>
-    <body>
+    <body class="hold-transition sidebar-mini">
         <div class="loading" style="display:none;">Loading&#8230;</div>
         <div>
             @include('layouts.navigation')
 
+            
+
+            <!-- Page Content -->
+            <!-- Content Wrapper. Contains page content -->
+          <div class="content-wrapper">
             <!-- Page Heading -->
             <header class="bg-white shadow">
                 <div class="">
                     {{ $header }}
                 </div>
             </header>
-
-            <!-- Page Content -->
+            
+            
+          <!-- /.content-wrapper -->  
             <main>
                 {{ $slot }}
             </main>
         </div>
 
-        <footer>
-          <p>Copyright © 2021. Designed by CABC’S Group India</p>
+        <footer class="main-footer">
+          <div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0
+          </div>
+          <strong>Copyright &copy; 2021. Designed by CABC’S Group India
         </footer>
+
+        </div>
 
         @stack('scripts')
 
@@ -320,5 +335,14 @@ header.bg-white.shadow + main {
               toastr.warning("{{ session('warning') }}");
           @endif
         </script>
+        <!-- jQuery -->
+      <script src="{{ themeAsset('plugins/jquery/jquery.min.js') }}"></script>
+      <!-- Bootstrap 4 -->
+      <script src="{{ themeAsset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+      <!-- AdminLTE App -->
+      <script src="{{ themeAsset('dist/js/adminlte.min.js') }}"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="{{ themeAsset('dist/js/demo.js') }}"></script>
+
     </body>
 </html>

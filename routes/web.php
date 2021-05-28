@@ -13,6 +13,10 @@ use App\Providers\RouteServiceProvider;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function() {
+   $exitCode = Artisan::call('cache:clear');
+   return 'success';
+});
 
 Route::get('/', function () {
     // return view('welcome');
@@ -21,6 +25,10 @@ Route::get('/', function () {
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
+});
+
+Route::get('/new-theme-index', function () {
+    return view('layouts/newapp');
 });
 
 Route::get('/auth/callback', 'App\Http\Controllers\Auth\RegisteredUserController@loginWithGoogle');
