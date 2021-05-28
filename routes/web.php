@@ -14,15 +14,13 @@ use App\Providers\RouteServiceProvider;
 |
 */
 Route::get('/clear-cache', function() {
-    $http = (@$_SERVER['HTTPS']) ? 'https://' : 'http://' ;
-    dd($http);
    $exitCode = Artisan::call('cache:clear');
    return 'success';
 });
 
 Route::get('/', function () {
-    // return view('welcome');
-    return redirect(RouteServiceProvider::HOME);
+    return view('home');
+    //return redirect(RouteServiceProvider::HOME);
 });
 
 Route::get('/auth/redirect', function () {
