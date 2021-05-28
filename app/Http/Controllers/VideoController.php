@@ -18,7 +18,7 @@ session_start();
 class VideoController extends Controller
 {
     public function index()
-    {
+    {    	
     	$channelsCount = 0;
     	$channelsList = [];
     	$channels = [];
@@ -45,7 +45,8 @@ class VideoController extends Controller
 		 * authenticated user's account and requires requests to use an SSL connection.
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
@@ -149,7 +150,8 @@ class VideoController extends Controller
 		 * authenticated user's account and requires requests to use an SSL connection.
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
@@ -219,7 +221,8 @@ class VideoController extends Controller
 		 * authenticated user's account and requires requests to use an SSL connection.
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
@@ -313,7 +316,8 @@ class VideoController extends Controller
 		 * authenticated user's account and requires requests to use an SSL connection.
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
@@ -412,7 +416,8 @@ class VideoController extends Controller
 		 * authenticated user's account and requires requests to use an SSL connection.
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
@@ -511,7 +516,8 @@ class VideoController extends Controller
 		$client->setClientSecret($OAUTH2_CLIENT_SECRET);
 		$client->setAccessType('offline');
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
-		$redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
+		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
+		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
 		    FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
