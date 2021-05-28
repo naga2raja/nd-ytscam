@@ -537,7 +537,7 @@ class VideoController extends Controller
 		}
 		$_SESSION[$tokenSessionKey] = $client->getAccessToken();
 		$client->revokeToken(@$_SESSION[$tokenSessionKey]);
-	  	return redirect('/login');
+	  	return redirect('/');
     }
 
     public function getApiRequestCount($requestType)

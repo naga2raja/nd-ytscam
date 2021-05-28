@@ -9,14 +9,14 @@
         </nav>
     </x-slot>
 
-    <div class="col-md--12">
+    <div class="col-md-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                 <a href="{{ route('dashboard') }}" class="btn btn-success pull-right"> <i class="fa fa-arrow-left"></i> Go Back</a> <br> 
                 <div style="clear: both;"></div>
 
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-5">
                      <b>Subscribed Successfully!!</b>
                 </div>
             </div>           

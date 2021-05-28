@@ -206,7 +206,7 @@
         <li class="nav-item">
           <x-nav-link :href="route('no-spam-words.index')" class="nav-link {{ request()->routeIs('no-spam-words.index') ? 'active' : '' }}">
             <i class="nav-icon fas fa-thumbs-up"></i>
-           <p> {{ __('No Spam Words') }}</p>
+           <p> {{ __('Not Spam Words') }}</p>
           </x-nav-link>
         </li>
 

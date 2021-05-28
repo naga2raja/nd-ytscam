@@ -1,12 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('define-spam-words.create') }}">{{ __('No Spam Words') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ __('Update') }}</li>
-          </ol>
-        </nav>
+      <section class="content-header">
+        <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            <h1>Update Not Spam Words</h1>
+            </div>
+            <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ route('video') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('no-spam-words.index') }}">Not Spam Words</a></li>
+                <li class="breadcrumb-item active">Create</li>
+            </ol>
+            </div>
+        </div>
+        </div>
+    </section>
     </x-slot>
 
     <div class="col-md-12">
@@ -21,7 +30,7 @@
                                 @csrf
                                 <input name="_method" type="hidden" value="PUT">
                                 <div class="form-group row">
-                                    <label for="spam_text" class="col-sm-2 col-form-label">Spam Word / Text</label>
+                                    <label for="spam_text" class="col-sm-2 col-form-label">Not Spam Word / Text</label>
                                     <div class="col-sm-5">
                                       <input type="text" class="form-control" id="spam_text" name="spam_text" value="{{ $spamWord->word }}">
                                        @if($errors->any())

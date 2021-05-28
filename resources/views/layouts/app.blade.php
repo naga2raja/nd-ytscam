@@ -260,10 +260,11 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 header.bg-white.shadow + main {
     min-height: 400px;
 }
+.error {color: red; }
 </style>
 
     </head>
-    <body class="hold-transition sidebar-mini">
+    <body class="sidebar-mini layout-fixed">
         <div class="loading" style="display:none;">Loading&#8230;</div>
         <div>
             @include('layouts.navigation')

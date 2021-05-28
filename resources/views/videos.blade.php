@@ -37,14 +37,14 @@
                     
                 </div>
             </div> -->
-        </div>       
+        </div>        
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                  @if($htmlBody == '' && $channelsCount > 0)
 
                  <!-- {{ $channels['pageInfo']['totalResults'] }} -->
-                 <h3 class="font-extrabold pt-2">Channels</h3>
+                 <!-- <h3 class="font-extrabold pt-2">Channels</h3> -->
 
                 <ul class="list-group" id="user_channels_list">
                     @foreach ($channelsList as $channel)
@@ -62,7 +62,7 @@
                 @endif                    
             </div>
 
-            <div id="channelVideosList" class="col-md-6" style="display: none;max-height: 372px; overflow: overlay;">
+            <div id="channelVideosList" class="col-md-12" style="display: none;max-height: 372px; overflow: overlay;">
                 <div >
                     
                 </div>                    
