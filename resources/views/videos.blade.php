@@ -19,7 +19,76 @@
         /*.video_item.active{ background: #000; }*/
        /* .channel_item.active{ background: #000; }*/
 .video_item, .channel_item {
-    display: flex;
+    
+}
+.video-list-thumbs{}
+.video-list-thumbs > li{
+    margin-bottom:12px;
+}
+.video-list-thumbs > li:last-child{}
+.video-list-thumbs > li > a{
+	display:block;
+	position:relative;
+	background-color: #EA4335;
+	color: #fff;
+	padding: 8px;
+	border-radius:3px
+    transition:all 500ms ease-in-out;
+    border-radius:4px
+}
+.video-list-thumbs > li > a:hover{
+	box-shadow:0 2px 5px rgba(0,0,0,.3);
+	text-decoration:none
+}
+.video-list-thumbs h2{
+	bottom: 0;
+	font-size: 14px;
+	height: 33px;
+	margin: 8px 0 0;
+    color:#FFF;
+}
+.video-list-thumbs .glyphicon-play-circle{
+    font-size: 60px;
+    opacity: 0.6;
+    position: absolute;
+    right: 39%;
+    top: 31%;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    transition:all 500ms ease-in-out;
+}
+.video-list-thumbs > li > a:hover .glyphicon-play-circle{
+	color:#fff;
+	opacity:1;
+	text-shadow:0 1px 3px rgba(0,0,0,.8);
+}
+.video-list-thumbs .duration{
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 2px;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	left: 12px;
+	line-height: 13px;
+	padding: 2px 3px 1px;
+	position: absolute;
+	top: 12px;
+    transition:all 500ms ease;
+}
+.video-list-thumbs > li > a:hover .duration{
+	background-color:#000;
+}
+@media (min-width:320px) and (max-width: 480px) { 
+	.video-list-thumbs .glyphicon-play-circle{
+    font-size: 35px;
+    right: 36%;
+    top: 27%;
+	}
+	.video-list-thumbs h2{
+		bottom: 0;
+		font-size: 12px;
+		height: 22px;
+		margin: 8px 0 0;
+	}
 }
     </style>
     <div class="col-md-12">
@@ -46,15 +115,18 @@
                  <!-- {{ $channels['pageInfo']['totalResults'] }} -->
                  <!-- <h3 class="font-extrabold pt-2">Channels</h3> -->
 
-                <ul class="list-group" id="user_channels_list">
+                <div id="user_channels_list">
                     @foreach ($channelsList as $channel)
-                    <li id="{{ $channel->id }}" onclick="getVideosList('{{ $channel->id }}')" class="list-group-item channel_item" style="cursor: pointer;">
-                        <img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >
-                        <p class="p-3"><b>{{ $channel->snippet->title }}</b></p>
+                    <div id="{{ $channel->id }}" onclick="getVideosList('{{ $channel->id }}')" class="channel-item" style="cursor: pointer;">
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-size: 2.1rem;"><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >  {{ $channel->snippet->title }} </h3>
+                              </div>
+                    </div>
                      <!-- {{ $channel->id }}  -->
-                 </li>
+                </div>
                     @endforeach
-                </ul>
+                </div>
                 @else
                     @php  
                         echo $htmlBody;
@@ -62,7 +134,7 @@
                 @endif                    
             </div>
 
-            <div id="channelVideosList" class="col-md-12" style="display: none;max-height: 372px; overflow: overlay;">
+            <div id="channelVideosList" class="col-md-12" style="display: none;max-height: 570px; overflow: overlay;">
                 <div >
                     
                 </div>                    
@@ -139,21 +211,21 @@
                         if(!type && !token){                                                          
                             list += '<h3 class="font-extrabold pt-2">Channel Videos </h3>';
                         }                     
-                        list += '<ul class="list-group">';
+                        list += '<ul class="list-unstyled video-list-thumbs row">';
                         videos = result.items;
 
                         var i;
                         for (i = 0; i < videos.length; ++i) {
                             var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
 
-                            list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="flex gap-3 video_item list-group-item" style="cursor: pointer;">';
-                            list += '<img src="'+ videos[i]['snippet']['thumbnails']['default']['url'] +'" width="120">';
-                            list += '<p><b>'+ videos[i]['snippet']['title'] +'</b>';
-                            list += ' - '+ publishedAt +'</p>';
+                            list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
+                            list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
+                            list += '<h2>'+ videos[i]['snippet']['title'] +' - <i class="publish">'+ publishedAt +'</i> </h2>';
+                            list += '</a>';
                             list += '</li>';
                         }
                         if(videos.length == 0) {
-                            list += '<li class="list-group-item">No Videos Found</li>';
+                            list += '<li class="col-md-12"> <div class="alert alert-warning">No Videos found</div> </li>';
                         }
 
                         list += '</ul>';
@@ -164,7 +236,7 @@
                             list += '<a class="prev_navigation" onclick="getVideosList(\''+id+'\', \'prev\', \''+result.prevPageToken+'\')">Previous</a>';
                         }
                         if(result.nextPageToken) {                        
-                            list += '<a class="next_navigation"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\')">Load More</a>';
+                            list += '<center><a class="next_navigation btn btn-danger"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\')">Load More</a></center>';
                         }
 
                         $('#channelVideosList').show();
@@ -461,7 +533,7 @@
             }
 
             $(document).ready(function(){
-                $("ul#user_channels_list li:first-child").click();
+                $("#user_channels_list > .channel-item").click();
             })
         </script>
     @endpush

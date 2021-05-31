@@ -184,7 +184,7 @@ class VideoController extends Controller
 			    'channelId' => $channelId,
 			    'channelType' => 'channelTypeUnspecified',
 			    'forMine' => false,
-			    'maxResults' => 10,
+			    'maxResults' => 12,
 			    'order' => 'date',
 			    'safeSearch' => 'none',
 			    'type' => 'video',

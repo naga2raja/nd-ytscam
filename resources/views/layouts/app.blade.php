@@ -27,6 +27,8 @@
         <link rel="stylesheet" href="{{ themeAsset('dist/css/adminlte.min.css') }}">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{{ themeAsset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 
         <link rel="stylesheet" type="text/css" 
      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">   
@@ -286,6 +288,9 @@ header.bg-white.shadow + main {
             <main>
                 {{ $slot }}
             </main>
+            <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+              <i class="fas fa-chevron-up"></i>
+            </a>
         </div>
 
         <footer class="main-footer">
