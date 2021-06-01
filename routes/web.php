@@ -23,6 +23,10 @@ Route::get('/', function () {
     //return redirect(RouteServiceProvider::HOME);
 });
 
+Route::get('/', function () {
+    return view('home');
+});
+
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 });
