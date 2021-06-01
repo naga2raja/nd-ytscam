@@ -36,8 +36,8 @@
           <li class="active"><a href="/">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#features">Features</a></li>
-          <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-          <li><a href="#team">Team</a></li>
+          <!-- <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>  -->
           <li><a href="#pricing">Pricing</a></li>
           <!--
           <li class="drop-down"><a href="">Drop Down</a>
@@ -74,10 +74,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Better Solutions For Your Business</h1>
-          <h2>We are team of talented designers making websites with Bootstrap</h2>
+          <h1>Better Solutions For YouTube Scams</h1>
+          <h2>We identifies the spam and negative comments on your YouTube channel and delete it</h2>
           <div class="d-lg-flex">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="/login" class="btn-get-started">Try Now</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
         </div>
@@ -162,6 +162,7 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Why Us Section ======= -->
+    <!--
     <section id="why-us" class="why-us section-bg">
       <div class="container-fluid" data-aos="fade-up">
 
@@ -214,7 +215,8 @@
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+    </section> 
+  --> <!-- End Why Us Section -->
 
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="skills">
@@ -275,14 +277,14 @@
 
         <div class="section-title">
           <h2>Features</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Spam comments on YouTube are really a headache of the channel owners. ND-YTScam helps you to find spam comments also can define spams and find spam comments to delete it.</p>
         </div>
 
         <div class="row">
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
+              <h4><a href="">One click Registration</a></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
           </div>
@@ -290,7 +292,7 @@
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
+              <h4><a href="">Can access more channels</a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div>
@@ -298,7 +300,7 @@
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
+              <h4><a href="">Sentiment Analysis to find spam comments</a></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
             </div>
           </div>
@@ -306,7 +308,15 @@
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
+              <h4><a href="">Define Custom Spam words</a></h4>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" style="margin-top: 20px !important;" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">Delete Spam Comments</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
           </div>
@@ -321,13 +331,16 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="col-lg-12 text-center text-lg-center">
+            <h3>Why ND-YTScam is needed?</h3>
+            <p> Spam comments on YouTube are really a headache of the channel owners. They have a 100's of spam messages and promotion messages, which is difficult for the owners to go through the message and delete all the spam messages. Even though YouTube has its own logic to filter the spam, it filters only 10% of the comments.</p>
+            <p> ND-YTScam helps to manage youtube spam comments.</p>
           </div>
+          <!--
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#">Call To Action</a>
           </div>
+        -->
         </div>
 
       </div>
@@ -450,6 +463,7 @@
     <!-- End Portfolio Section -->
 
     <!-- ======= Team Section ======= -->
+    <!--
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -531,7 +545,9 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section>
+  -->
+    <!-- End Team Section -->
 
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
@@ -549,43 +565,45 @@
               <h3>Free Plan</h3>
               <h4><sup>$</sup>0<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                <li><i class="bx bx-check"></i> View all videos</li>
+                <li><i class="bx bx-check"></i> View spam comments of each videos</li>
+                <li><i class="bx bx-check"></i> Delete spam comments (5 only)</li>
+                <li><i class="bx bx-check"></i> Define custom spam words (5 only)</li>
+                <li><i class="bx bx-check"></i> Set not spam words (5 only)</li>
+                <!-- <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
+                <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
               </ul>
-              <a href="#" class="buy-btn">Get Started</a>
+              <a href="/login" class="buy-btn">Get Started</a>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
-              <h3>Business Plan</h3>
+              <h3>Silver Plan</h3>
               <h4><sup>$</sup>29<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <a href="#" class="buy-btn">Get Started</a>
+                <li><i class="bx bx-check"></i> View all videos</li>
+                <li><i class="bx bx-check"></i> View spam comments of each videos</li>
+                <li><i class="bx bx-check"></i> Delete spam comments (50 only)</li>
+                <li><i class="bx bx-check"></i> Define custom spam words (50 only)</li>
+                <li><i class="bx bx-check"></i> Set not spam words (50 only)</li>
+              </ul>              
+              <a href="#pricingEnquiryModal" class="buy-btn" data-toggle="modal" data-target="#pricingEnquiryModal" data-whatever="Silver Plan">Get Started</a>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
-              <h3>Developer Plan</h3>
+              <h3>Gold Plan</h3>
               <h4><sup>$</sup>49<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                <li><i class="bx bx-check"></i> View all videos</li>
+                <li><i class="bx bx-check"></i> View spam comments of each videos</li>
+                <li><i class="bx bx-check"></i> Delete unlimited spam comments</li>
+                <li><i class="bx bx-check"></i> Define unlimited custom spam words</li>
+                <li><i class="bx bx-check"></i> Set unlimited not spam words</li>
               </ul>
-              <a href="#" class="buy-btn">Get Started</a>
+              <a href="#pricingEnquiryModal" class="buy-btn" data-toggle="modal" data-target="#pricingEnquiryModal" data-whatever="Gold Plan">Get Started</a>
             </div>
           </div>
 
@@ -693,7 +711,8 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="/contact" method="post" role="form" class="php-email-form">
+              @csrf 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -819,6 +838,47 @@
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
+  <div class="modal fade" id="pricingEnquiryModal" tabindex="-1" role="dialog" aria-labelledby="pricingEnquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="/contact" method="post" role="form" class="pricing-email-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pricingEnquiryModalLabel">Contact us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          @csrf 
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Plan:</label>
+              <input type="text" class="form-control" name="recipient-name" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="your-name" class="col-form-label">Your Name:</label>
+              <input type="text" class="form-control" name="your-name"  id="your-name" required>
+            </div>            
+            <div class="form-group">
+              <label for="your-email" class="col-form-label">Your Email:</label>
+              <input type="email" class="form-control" name="your-email" id="your-email" required>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" name="message-text" id="message-text" required></textarea>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
+
+      </div>
+    </div>
+  </div>
+
+
   <!-- Vendor JS Files -->
   <script src="{{ themeAsset('/') }}/assets/vendor/jquery/jquery.min.js"></script>
   <script src="{{ themeAsset('/') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -832,5 +892,16 @@
 
   <!-- Template Main JS File -->
   <script src="{{ themeAsset('/') }}/assets/js/main.js"></script>
+  <script>
+    $('#pricingEnquiryModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('Contact for ' + recipient)
+      modal.find('.modal-body input[id=recipient-name]').val(recipient)
+    })
+  </script>
     </body>
 </html>

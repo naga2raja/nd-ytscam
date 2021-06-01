@@ -34,6 +34,7 @@ Route::get('/auth/redirect', function () {
 Route::get('/new-theme-index', function () {
     return view('layouts/newapp');
 });
+Route::post('/contact', 'App\Http\Controllers\ContactController@contact');
 
 Route::get('/auth/callback', 'App\Http\Controllers\Auth\RegisteredUserController@loginWithGoogle');
 

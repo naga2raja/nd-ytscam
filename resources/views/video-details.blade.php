@@ -27,11 +27,12 @@
             overflow-x: hidden;
             overflow-y: scroll;
         }
+        .marquee_text_highlight {  font-weight: 600; color: red; }
     </style>
 
     <div class="row">
-        <div class="col-md-12 pt-2">
-            <a href="javascript:window.close()" class="btn btn-success pull-right"><i class="fa fa-arrow-left"> </i> Back</a>
+        <div class="col-md-12">
+            <a href="javascript:window.close()" class="btn btn-success pull-right mt-3"><i class="fa fa-arrow-left"> </i> Back</a>
         </div>
     </div>
         <div style="clear:both;"></div>
@@ -40,7 +41,6 @@
         <div class="col-md-6 col-sm-12">
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
         </div>
-
         <div class="col-md-6">
             <div class="col-md-12">
                 @if($spamWords && $spamWords->spam_words)
@@ -86,6 +86,7 @@
             </div>
         </div>
 
+        <div class="col-md-12"> <marquee class="marquee_text_highlight">Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments only.</marquee> </div>
     </div>
 
     
@@ -354,7 +355,6 @@
                     }
                 });
             }
-
         </script>
     @endpush
 @endonce  

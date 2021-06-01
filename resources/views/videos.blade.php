@@ -21,6 +21,9 @@
 .video_item, .channel_item {
     
 }
+.video_item img.img-responsive {
+    width: 100%;
+}
 .video-list-thumbs{}
 .video-list-thumbs > li{
     margin-bottom:12px;
@@ -29,23 +32,24 @@
 .video-list-thumbs > li > a{
 	display:block;
 	position:relative;
-	background-color: #EA4335;
-	color: #fff;
+	/* background-color: #EA4335; */
+	color: #000;
 	padding: 8px;
 	border-radius:3px
     transition:all 500ms ease-in-out;
-    border-radius:4px
+    border-radius:4px;
+    border: 2px solid #333;
 }
 .video-list-thumbs > li > a:hover{
 	box-shadow:0 2px 5px rgba(0,0,0,.3);
 	text-decoration:none
 }
 .video-list-thumbs h2{
-	bottom: 0;
-	font-size: 14px;
-	height: 33px;
-	margin: 8px 0 0;
-    color:#FFF;
+    bottom: 0;
+    font-size: 16px;
+    min-height: 50px;
+    margin: 8px 0 0;
+    color: #000;
 }
 .video-list-thumbs .glyphicon-play-circle{
     font-size: 60px;
@@ -220,7 +224,7 @@
 
                             list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
                             list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
-                            list += '<h2>'+ videos[i]['snippet']['title'] +' - <i class="publish">'+ publishedAt +'</i> </h2>';
+                            list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
                             list += '</a>';
                             list += '</li>';
                         }
