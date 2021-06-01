@@ -23,7 +23,7 @@ Route::get('/', function () {
     //return redirect(RouteServiceProvider::HOME);
 });
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 
