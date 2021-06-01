@@ -46,8 +46,9 @@ class VideoController extends Controller
 		 */
 		$client->setScopes('https://www.googleapis.com/auth/youtube.force-ssl');
 		$httpProtocol = (@$_SERVER['HTTPS']) ? 'https://' : 'http://';
-		$redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
-		    FILTER_SANITIZE_URL);
+		// $redirect = filter_var($httpProtocol . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL);
+		$redirect = $httpProtocol . $_SERVER['HTTP_HOST'] . '/index.php/video';
+		$redirect = filter_var($redirect, FILTER_SANITIZE_URL);
 		$client->setRedirectUri($redirect);
 
 		// Define an object that will be used to make all API requests.
