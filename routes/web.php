@@ -19,13 +19,13 @@ Route::get('/clear-cache', function() {
 });
 
 Route::get('/', function () {
-    return view('home');
-    //return redirect(RouteServiceProvider::HOME);
+    //return view('home');
+    return redirect(RouteServiceProvider::HOME);
 });
 
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
