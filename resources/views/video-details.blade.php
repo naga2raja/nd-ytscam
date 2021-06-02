@@ -199,9 +199,12 @@
 
                     list += '<li id="'+title+'_'+videos[i]['id']+'" class="'+title+'_comments list-group-item"> <div class="icheck-primary"><input type="checkbox" id="'+title+'_cmt_'+videos[i]['id']+'" class="parent_comment" value="'+ videos[i]['id'] +'">';
                     list += '<label for="'+title+'_cmt_'+videos[i]['id']+'">'+ videos[i]['snippet']['topLevelComment']['snippet']['textDisplay'] +' - '+ videos[i]['snippet']['topLevelComment']['snippet']['authorDisplayName'];
-                    // if(videos[i]['paysify_status']) {
-                    //     list += ' - << '+videos[i]['paysify_status']+'>> ';
-                    // }
+                    if(videos[i]['sentiment_status'] && videos[i]['sentiment_status'] == 'neu') {
+                         list += ' <span class="right badge badge-warning"> '+videos[i]['sentiment_status']+'</span> ';
+                    }
+                    if(videos[i]['sentiment_status'] && videos[i]['sentiment_status'] == 'neg') {
+                        list += ' <span class="right badge badge-danger"> '+videos[i]['sentiment_status']+'</span> ';
+                   }
 
                     var totalReplyCount = videos[i]['snippet']['totalReplyCount'];
                     list += ' - '+ publishedAt +'</label>';
@@ -211,7 +214,16 @@
                         var replies = videos[i]['replies']['comments'];
                         var j;
                         for (j = 0; j < replies.length; ++j) {
-                            list += '<div class="flex gap-3 ml-6" style="padding-left: 25px;"><div class="icheck-primary  pull-left pr-2"> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'"> <label for="child_cmt_'+title+ replies[j]['id'] +'">' + replies[j]['snippet']['textDisplay'] + '</label></div></div>';
+                            var replybadge = '';
+                            if(replies[j]['sentiment_status'] && replies[j]['sentiment_status'] == 'neg') {
+                                replybadge += ' <span class="right badge badge-danger"> '+ replies[j]['sentiment_status']+'</span> ';
+                           }
+                           if(replies[j]['sentiment_status'] && replies[j]['sentiment_status'] == 'neu') {
+                                replybadge += ' <span class="right badge badge-warning"> '+ replies[j]['sentiment_status']+'</span> ';
+                            }
+                            console.log('TESt', replybadge, replies[j]);
+                           
+                            list += '<div class="gap-3 ml-6" style="padding-left: 25px;"><div class="icheck-primary pr-2"> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'"> <label for="child_cmt_'+title+ replies[j]['id'] +'">' + replies[j]['snippet']['textDisplay'] + ' - ' + replies[j]['snippet']['authorDisplayName'] + ' ' + replybadge + ' ' + moment(replies[j]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a') + '</label></div></div>';
                         }
                     }
 

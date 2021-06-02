@@ -205,8 +205,7 @@ class VideoController extends Controller
     }
 
     public function allCommentsList(Request $request, $videoId)
-    {
-    	// dd($request->token);
+    {    	
     	$OAUTH2_CLIENT_ID = Config('services.google.client_id');
 		$OAUTH2_CLIENT_SECRET = Config('services.google.client_secret');
 
@@ -477,33 +476,66 @@ class VideoController extends Controller
     	// $sentiment = new \PHPInsight\Sentiment();	
     	foreach ($output as $key => $value) {
     		$comment = $value['snippet']['topLevelComment']['snippet']['textDisplay'];
-    		$sentimentalStatus = $this->detectSentiment($comment);
-    		// $sentimentalStatus = $data['data']['state'];
+			$spamResults = $this->checkSpamByComment($comment);
+    		// $sentimentalStatus = $this->detectSentiment($comment);
 
-    		$isSpam = $this->findSpamTextinSentence($comment); 
-    		$isDefinedSpam = $this->checkUserDefinedSpam($comment); 
-    		$isNoSpam = $this->checkUserDefinedNoSpam($comment); 
+    		// $isSpam = $this->findSpamTextinSentence($comment); 
+    		// $isDefinedSpam = $this->checkUserDefinedSpam($comment); 
+    		// $isNoSpam = $this->checkUserDefinedNoSpam($comment); 
 
-    		// $out[] = $value['snippet']['topLevelComment']['snippet']['textDisplay'] . ' => '.$sentimentalStatus;
+    		// // $out[] = $value['snippet']['topLevelComment']['snippet']['textDisplay'] . ' => '.$sentimentalStatus;
 
-    		// $out[] = [ 
-    		// 	'id' => $value['id'], 
-    		// 	'topLevelComment' => $value['snippet']['topLevelComment'],
-    		// 	'snippet' => $value['snippet'],
-    		// 	'totalReplyCount' => $value['snippet']['totalReplyCount'],
-    		// 	'replies' => $value['snippet']['replies'],
-    		// 	'paysify_status' => $sentimentalStatus
-    		// ];
-    		// dd($isDefinedSpam, $comment);
-    		if($isDefinedSpam) {
+			// $spamFlag = true;
 
-    		} else {
-	    		if(($sentimentalStatus == 'pos' && !$isSpam) || $isNoSpam) {
-	    			unset($output[$key]);
-	    		}    			
-    		}
+    		// if($isDefinedSpam) {
+
+    		// } else {
+	    	// 	if(($sentimentalStatus == 'pos' && !$isSpam) || $isNoSpam) {
+			// 		$spamFlag = false;
+	    	// 		unset($output[$key]);
+	    	// 	}    			
+    		// }
+			$spamFlag = $spamResults['is_spam'];
+			$sentimentalStatus = $spamResults['status'];
+			if($spamFlag) {
+				// $out[] = [ 
+				// 	'id' => $value['id'], 
+				// 	'topLevelComment' => $value['snippet']['topLevelComment'],
+				// 	'snippet' => $value['snippet'],
+				// 	'totalReplyCount' => $value['snippet']['totalReplyCount'],
+				// 	'replies' => $value['replies'],
+				// 	'sentiment_status' => $sentimentalStatus
+				// ];
+				$replySpams = [];
+				if($value['replies'] && $value['replies']['comments']) {
+					
+					foreach($value['replies']['comments'] as $repKey => $repValue) {
+						$replyComment = $repValue['snippet']['textDisplay'];
+						$replySpamResults = $this->checkSpamByComment($replyComment);
+						$repSpamFlag = $replySpamResults['is_spam'];
+						$repSentimentalStatus = $replySpamResults['status'];
+						if($repSpamFlag) {
+							$repCommentValue['id'] = $repValue['id'];
+							$repCommentValue['snippet'] = $repValue['snippet'];
+							$repCommentValue['etag'] = $repValue['etag'];
+							$repCommentValue['sentiment_status'] = $repSentimentalStatus;
+							$replySpams[] = $repCommentValue;							
+						}	
+					}
+				}
+				$out[] = [ 
+					'id' => $value['id'], 
+					'topLevelComment' => $value['snippet']['topLevelComment'],
+					'snippet' => $value['snippet'],
+					'totalReplyCount' => $value['snippet']['totalReplyCount'],
+					'replies' => ['comments' => $replySpams],
+					'sentiment_status' => $sentimentalStatus
+				];				
+
+				$spamResults = $this->checkSpamByComment($comment);
+			}
     	}
-		return $output;
+		return $out;
     }
 
     public function logout()
@@ -658,6 +690,25 @@ class VideoController extends Controller
   	$spamWords = UserSpamWord::where('user_id', Auth::user()->id)->selectRaw('GROUP_CONCAT(" ", spam_word, " ") as spam_words')->first();
   	$noSpamWords = UserNoSpamWord::where('user_id', Auth::user()->id)->selectRaw('GROUP_CONCAT(" ", word, " ") as spam_words')->first();
   	return view('video-details', compact('videoId', 'spamWords', 'noSpamWords'));
+  }
+
+  public function checkSpamByComment($comment)
+  {
+	$sentimentalStatus = $this->detectSentiment($comment);
+
+	$isSpam = $this->findSpamTextinSentence($comment); 
+	$isDefinedSpam = $this->checkUserDefinedSpam($comment); 
+	$isNoSpam = $this->checkUserDefinedNoSpam($comment); 
+	$spamFlag = true;
+
+	if($isDefinedSpam) {
+
+	} else {
+		if(($sentimentalStatus == 'pos' && !$isSpam) || $isNoSpam) {
+			$spamFlag = false;
+		}    			
+	}
+	return ['status' => $sentimentalStatus, 'is_spam' => $spamFlag];
   }
 
 }

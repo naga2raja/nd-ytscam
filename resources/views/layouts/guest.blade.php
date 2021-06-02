@@ -20,9 +20,14 @@
         <link rel="stylesheet" href="{{ themeAsset('dist/css/adminlte.min.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>        
+        <script src="{{ asset('js/app.js') }}" defer></script>      
+        <style>
+            .card, .login-card-body, .register-card-body { background: none; box-shadow: none; border: 0px;}
+        </style>  
     </head>
-    <body class="hold-transition login-page">
+    <body class="hold-transition login-page" style="background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    ">
         <div>
             {{ $slot }}
         </div>

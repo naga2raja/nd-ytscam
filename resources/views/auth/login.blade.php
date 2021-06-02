@@ -12,7 +12,7 @@
 
       <!-- Validation Errors -->
       <x-auth-validation-errors class="alert alert-danger" :errors="$errors" />
-
+<!--
       <form method="POST" action="{{ route('login') }}">
          @csrf
         <div class="input-group mb-3">
@@ -40,16 +40,16 @@
               </label>
             </div>
           </div>
-          <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
-          <!-- /.col -->
+          
         </div>
       </form>
+    -->
 
       <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
+        <!-- <p>- OR -</p> -->
         <!-- <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
         </a> -->
