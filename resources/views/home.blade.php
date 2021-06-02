@@ -841,7 +841,7 @@
   <div class="modal fade" id="pricingEnquiryModal" tabindex="-1" role="dialog" aria-labelledby="pricingEnquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form action="/contact" method="post" role="form" class="pricing-email-form">
+        <form action="/plan-enquiry" method="post" role="form" class="php-email-form">
         <div class="modal-header">
           <h5 class="modal-title" id="pricingEnquiryModalLabel">Contact us</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -851,24 +851,34 @@
         <div class="modal-body">
           @csrf 
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Plan:</label>
-              <input type="text" class="form-control" name="recipient-name" id="recipient-name">
+              <label for="recipient_name" class="col-form-label">Plan:</label>
+              <input type="text" class="form-control" name="recipient_name" id="recipient_name" readonly>
+              <div class="validate"></div>
             </div>
             <div class="form-group">
-              <label for="your-name" class="col-form-label">Your Name:</label>
-              <input type="text" class="form-control" name="your-name"  id="your-name" required>
+              <label for="your_name" class="col-form-label">Your Name:</label>
+              <input type="text" class="form-control" name="your_name"  id="your_name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
             </div>            
             <div class="form-group">
               <label for="your-email" class="col-form-label">Your Email:</label>
-              <input type="email" class="form-control" name="your-email" id="your-email" required>
+              <input type="email" class="form-control" name="your_email" id="your_email"  data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" name="message-text" id="message-text" required></textarea>
+              <label for="message_text" class="col-form-label">Message:</label>
+              <textarea class="form-control" name="message_text" id="message_text" data-rule="required" data-msg="Please write something for us"></textarea>
+              <div class="validate"></div>
             </div>
           
         </div>
         <div class="modal-footer">
+          
+            <div class="loading" style="display: none;">Loading</div>
+            <div class="error-message" ></div>
+            <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+          
+          
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
@@ -900,7 +910,7 @@
       // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
       var modal = $(this)
       modal.find('.modal-title').text('Contact for ' + recipient)
-      modal.find('.modal-body input[id=recipient-name]').val(recipient)
+      modal.find('.modal-body input[id=recipient_name]').val(recipient)
     })
   </script>
     </body>

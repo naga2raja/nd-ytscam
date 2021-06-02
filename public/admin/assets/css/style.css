@@ -1909,3 +1909,10 @@ section {
         padding-top: 4px;
     }
 }
+
+
+/* Custom CSS for Pricing popup error page*/
+
+#pricingEnquiryModal .validate {
+    color: red;
+}

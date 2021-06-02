@@ -35,6 +35,7 @@ Route::get('/new-theme-index', function () {
     return view('layouts/newapp');
 });
 Route::post('/contact', 'App\Http\Controllers\ContactController@contact');
+Route::post('/plan-enquiry', 'App\Http\Controllers\ContactController@planEnquiry');
 
 Route::get('/auth/callback', 'App\Http\Controllers\Auth\RegisteredUserController@loginWithGoogle');
 
