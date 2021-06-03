@@ -205,6 +205,9 @@
                     if(videos[i]['sentiment_status'] && videos[i]['sentiment_status'] == 'neg') {
                         list += ' <span class="right badge badge-danger"> '+videos[i]['sentiment_status']+'</span> ';
                    }
+                   if(videos[i]['sentiment_status'] && videos[i]['sentiment_status'] == 'pos') {
+                        list += ' <span class="right badge badge-success"> '+videos[i]['sentiment_status']+'</span> ';
+                    }
 
                     var totalReplyCount = videos[i]['snippet']['totalReplyCount'];
                     list += ' - '+ publishedAt +'</label>';

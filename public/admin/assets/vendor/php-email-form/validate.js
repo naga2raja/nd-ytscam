@@ -124,6 +124,7 @@
     });
 
     function php_email_form_submit(this_form, action, data) {
+
         $.ajax({
             type: "POST",
             url: action,
@@ -133,9 +134,15 @@
             if (msg.trim() == 'OK') {
                 this_form.find('.loading').slideUp();
                 this_form.find('.sent-message').slideDown();
-                this_form.find("input:not(input[type=submit]), textarea").val('');
-                alert('Your message has been sent successfully. we will contact you soon. Thank You!');
-                location.reload();
+
+                var recipient_name = this_form.find('input[id=recipient_name]').val();
+                var token_value = this_form.find('input[name=_token]').val();
+                console.log(recipient_name, 'recipient_name');
+                this_form.find("input:not(input[type=submit]), input:not(input[id=recipient_name]), textarea").val('');
+                //alert('Your message has been sent successfully. we will contact you soon. Thank You!');
+                // location.reload();
+                this_form.find('input[id=recipient_name]').val(recipient_name);
+                this_form.find('input[name=_token]').val(token_value);
             } else {
                 this_form.find('.loading').slideUp();
                 if (!msg) {

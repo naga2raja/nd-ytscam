@@ -38,7 +38,7 @@
 	border-radius:3px
     transition:all 500ms ease-in-out;
     border-radius:4px;
-    border: 2px solid #333;
+    border: 1px solid #eee;
 }
 .video-list-thumbs > li > a:hover{
 	box-shadow:0 2px 5px rgba(0,0,0,.3);
@@ -113,36 +113,38 @@
         </div>        
 
         <div class="row">
+                         
             <div class="col-md-12">
-                 @if($htmlBody == '' && $channelsCount > 0)
+                <div class="card card-primary card-outline">
+                    @if($htmlBody == '' && $channelsCount > 0)
 
-                 <!-- {{ $channels['pageInfo']['totalResults'] }} -->
-                 <!-- <h3 class="font-extrabold pt-2">Channels</h3> -->
+                    <!-- {{ $channels['pageInfo']['totalResults'] }} -->
+                    <!-- <h3 class="font-extrabold pt-2">Channels</h3> -->
 
-                <div id="user_channels_list">
-                    @foreach ($channelsList as $channel)
-                    <div id="{{ $channel->id }}" onclick="getVideosList('{{ $channel->id }}')" class="channel-item" style="cursor: pointer;">
-                        <div class="card card-danger">
-                            <div class="card-header">
-                                <h3 class="card-title" style="font-size: 2.1rem;"><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >  {{ $channel->snippet->title }} </h3>
-                              </div>
+                    <div id="user_channels_list">
+                        @foreach ($channelsList as $channel)
+                        
+                        <div id="{{ $channel->id }}" class="card-header current_channel_row">                            
+                                    <h3 class="card-title" style="font-size: 1.5rem;"><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >  {{ $channel->snippet->title }} </h3>
+                               
+                        <!-- {{ $channel->id }}  -->
                     </div>
-                     <!-- {{ $channel->id }}  -->
-                </div>
-                    @endforeach
-                </div>
-                @else
-                    @php  
-                        echo $htmlBody;
-                    @endphp
-                @endif                    
-            </div>
-
-            <div id="channelVideosList" class="col-md-12" style="display: none;max-height: 570px; overflow: overlay;">
-                <div >
+                        @endforeach
+                    </div>
                     
+                    <div id="channelVideosList" class="card-body" style="display: none;max-height: 570px; overflow: overlay;">
+                                   
+                    </div>
+
+                    @else
+                        @php  
+                            echo $htmlBody;
+                        @endphp
+                    @endif
                 </div>                    
             </div>
+
+            
             
           </div>
 
@@ -213,7 +215,7 @@
                         console.log(result);
                         var list = '';   
                         if(!type && !token){                                                          
-                            list += '<h3 class="font-extrabold pt-2">Channel Videos </h3>';
+                            list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
                         }                     
                         list += '<ul class="list-unstyled video-list-thumbs row">';
                         videos = result.items;
@@ -537,7 +539,9 @@
             }
 
             $(document).ready(function(){
-                $("#user_channels_list > .channel-item").click();
+                var channel_id =  $(".current_channel_row").attr('id') ;
+                getVideosList(channel_id);
+               // $("#user_channels_list > .channel-item").click();
             })
         </script>
     @endpush

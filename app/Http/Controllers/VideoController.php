@@ -533,6 +533,30 @@ class VideoController extends Controller
 				];				
 
 				$spamResults = $this->checkSpamByComment($comment);
+			} else if(!$spamFlag && $value['replies'] && $value['replies']['comments'] ) {
+				$replySpams = [];
+				foreach($value['replies']['comments'] as $repKey => $repValue) {
+					$replyComment = $repValue['snippet']['textDisplay'];
+					$replySpamResults = $this->checkSpamByComment($replyComment);
+					$repSpamFlag = $replySpamResults['is_spam'];
+					$repSentimentalStatus = $replySpamResults['status'];
+					if($repSpamFlag) {
+						$repCommentValue['id'] = $repValue['id'];
+						$repCommentValue['snippet'] = $repValue['snippet'];
+						$repCommentValue['etag'] = $repValue['etag'];
+						$repCommentValue['sentiment_status'] = $repSentimentalStatus;
+						$replySpams[] = $repCommentValue;							
+					}	
+				}
+				$out[] = [ 
+					'id' => $value['id'], 
+					'topLevelComment' => $value['snippet']['topLevelComment'],
+					'snippet' => $value['snippet'],
+					'totalReplyCount' => $value['snippet']['totalReplyCount'],
+					'replies' => ['comments' => $replySpams],
+					'sentiment_status' => $sentimentalStatus
+				];
+
 			}
     	}
 		return $out;

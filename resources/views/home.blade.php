@@ -74,7 +74,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Better Solutions For YouTube Scams</h1>
+          <h1>Better Solutions For YouTube Comments Scams</h1>
           <h2>We identifies the spam and negative comments on your YouTube channel and delete it</h2>
           <div class="d-lg-flex">
             <a href="/login" class="btn-get-started">Try Now</a>
@@ -138,23 +138,18 @@
 
         <div class="row content">
           <div class="col-lg-6">
+            <h3>Problem</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
+              Spam comments on YouTube are really a headache of the channel owners. They have a 100's of spam messages and promotion messages, which is difficult for the owners to go through the message and delete all the spam messages. Even though YouTube has its own logic to filter the spam, it filters only 10% of the comments.
+            </p>            
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>Solution</h3>
             <p>
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
               velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
               culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 
@@ -219,7 +214,7 @@
   --> <!-- End Why Us Section -->
 
     <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills">
+    <!-- <section id="skills" class="skills">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -269,7 +264,7 @@
         </div>
 
       </div>
-    </section><!-- End Skills Section -->
+    </section> --> <!-- End Skills Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="features" class="services section-bg">
@@ -277,7 +272,7 @@
 
         <div class="section-title">
           <h2>Features</h2>
-          <p>Spam comments on YouTube are really a headache of the channel owners. ND-YTScam helps you to find spam comments also can define spams and find spam comments to delete it.</p>
+          <p>Spam comments on YouTube are really a headache of the channel owners. ND-YTScam helps you to find spam comments also can define own spams and find spam comments to delete it.</p>
         </div>
 
         <div class="row">
@@ -308,7 +303,7 @@
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Define Custom Spam words</a></h4>
+              <h4><a href="">Define Own Spam words</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
           </div>
@@ -567,9 +562,9 @@
               <ul>
                 <li><i class="bx bx-check"></i> View all videos</li>
                 <li><i class="bx bx-check"></i> View spam comments of each videos</li>
-                <li><i class="bx bx-check"></i> Delete spam comments (5 only)</li>
-                <li><i class="bx bx-check"></i> Define custom spam words (5 only)</li>
-                <li><i class="bx bx-check"></i> Set not spam words (5 only)</li>
+                <li><i class="bx bx-check"></i> Delete spam comments up to 5</li>
+                <li><i class="bx bx-check"></i> Define own spam words up to 5</li>
+                <li><i class="bx bx-check"></i> Set not spam words up to 5</li>
                 <!-- <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
               </ul>
@@ -584,9 +579,9 @@
               <ul>
                 <li><i class="bx bx-check"></i> View all videos</li>
                 <li><i class="bx bx-check"></i> View spam comments of each videos</li>
-                <li><i class="bx bx-check"></i> Delete spam comments (50 only)</li>
-                <li><i class="bx bx-check"></i> Define custom spam words (50 only)</li>
-                <li><i class="bx bx-check"></i> Set not spam words (50 only)</li>
+                <li><i class="bx bx-check"></i> Delete spam comments up to 50</li>
+                <li><i class="bx bx-check"></i> Define own spam words up to 50</li>
+                <li><i class="bx bx-check"></i> Set not spam words up to 5</li>
               </ul>              
               <a href="#pricingEnquiryModal" class="buy-btn" data-toggle="modal" data-target="#pricingEnquiryModal" data-whatever="Silver Plan">Get Started</a>
             </div>
@@ -600,7 +595,7 @@
                 <li><i class="bx bx-check"></i> View all videos</li>
                 <li><i class="bx bx-check"></i> View spam comments of each videos</li>
                 <li><i class="bx bx-check"></i> Delete unlimited spam comments</li>
-                <li><i class="bx bx-check"></i> Define unlimited custom spam words</li>
+                <li><i class="bx bx-check"></i> Define unlimited own spam words</li>
                 <li><i class="bx bx-check"></i> Set unlimited not spam words</li>
               </ul>
               <a href="#pricingEnquiryModal" class="buy-btn" data-toggle="modal" data-target="#pricingEnquiryModal" data-whatever="Gold Plan">Get Started</a>
@@ -613,7 +608,7 @@
     </section><!-- End Pricing Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
+    <!-- <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -672,7 +667,7 @@
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section> --> <!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -680,7 +675,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Reach out to the world’s most reliable IT services. </p>
         </div>
 
         <div class="row">
@@ -690,22 +685,21 @@
               <div class="address">
                 <i class="icofont-google-map"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>CRN Square, 2nd Floor, No.15, Kasturba Road, Bangalore 560-001.</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>arumugamb@cabcsgroup-india.com</p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                <p>+91 80565 55271               </p>
+              </div>              
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15551.81960327094!2d77.5974498!3d12.9747364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2ae2852af74593f0!2sMSC%20Group%20Software%20Systems%20and%20India%20Private%20Limited!5e0!3m2!1sen!2sin!4v1622715139226!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
 
           </div>
@@ -772,40 +766,27 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
+          <div class="col-lg-4 col-md-6 footer-contact">
             <h3>ND-YTSCAM</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+            <p>CRN Square, <br> 2nd Floor, <br> No.15, Kasturba Road, <br>  Bangalore 560-001 <br><br>
+              <strong>Phone:</strong> +91 80565 55271<br>
+              <strong>Email:</strong> arumugamb@cabcsgroup-india.com<br>
             </p>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Pricing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
-          </div>
+          </div>          
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
