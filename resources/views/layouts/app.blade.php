@@ -302,7 +302,7 @@ header.bg-white.shadow + main {
 
         </div>
 
-        @stack('scripts')
+       
 
         <script>
           @if(Session::has('message'))
@@ -349,6 +349,8 @@ header.bg-white.shadow + main {
       <script src="{{ themeAsset('dist/js/adminlte.min.js') }}"></script>
       <!-- AdminLTE for demo purposes -->
       <script src="{{ themeAsset('dist/js/demo.js') }}"></script>
+      <script src="{{ themeAsset('/') }}/assets/vendor/php-email-form/validate.js"></script>
+      @stack('scripts')
 
     </body>
 </html>

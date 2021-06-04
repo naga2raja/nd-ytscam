@@ -43,6 +43,20 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-12">
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments only.">
+                    <i class="fa fa-info"></i>
+                </button>
+                <button type="button" data-toggle="tooltip" data-placement="top" title="Neutral comments" style="border: 0px;">
+                    <span class="right badge badge-warning">neu</span>
+                </button>
+                <button type="button" data-toggle="tooltip" data-placement="top" title="Negative comments" style="border: 0px;">
+                    <span class="right badge badge-danger">neg</span>
+                </button>                
+                <button type="button" data-toggle="tooltip" data-placement="top" title="Positive comments" style="border: 0px;">
+                    <span class="right badge badge-success">pos</span>
+                </button> 
+            </div>
+            <div class="col-md-12 pt-2">
                 @if($spamWords && $spamWords->spam_words)
                 <div class="card card-warning">
                     <div class="card-header">
@@ -86,7 +100,7 @@
             </div>
         </div>
 
-        <div class="col-md-12"> <marquee class="marquee_text_highlight">Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments only.</marquee> </div>
+        {{-- <div class="col-md-12"> <marquee class="marquee_text_highlight"></marquee> </div> --}}
     </div>
 
     
@@ -370,6 +384,10 @@
                     }
                 });
             }
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+              })
+            
         </script>
     @endpush
 @endonce  

@@ -856,12 +856,12 @@
         <div class="modal-footer">
           
             <div class="loading" style="display: none;">Loading</div>
-            <div class="error-message" ></div>
-            <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
-          
           
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Send</button>
+          <div class="error-message" ></div>
+          <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+
         </div>
       </form>
 
@@ -885,6 +885,7 @@
   <script src="{{ themeAsset('/') }}/assets/js/main.js"></script>
   <script>
     $('#pricingEnquiryModal').on('show.bs.modal', function (event) {
+      $('#pricingEnquiryModal .sent-message').hide();
       var button = $(event.relatedTarget) // Button that triggered the modal
       var recipient = button.data('whatever') // Extract info from data-* attributes
       // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).

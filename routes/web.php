@@ -49,12 +49,15 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/video/comments/{videoId}', 'App\Http\Controllers\VideoController@allCommentsList');
 	Route::post('/comments/delete', 'App\Http\Controllers\VideoController@deleteComments');
     Route::post('/comments/search', 'App\Http\Controllers\VideoController@searchComments');
+    Route::post('/videos/search', 'App\Http\Controllers\SearchController@searchVideos');
     
     Route::get('/video-details/{videoId}', 'App\Http\Controllers\VideoController@details');
 
     Route::get('/subscribe-now/{planId}', 'App\Http\Controllers\SubscriptionController@subscribeNow');
     Route::resource('/define-spam-words', 'App\Http\Controllers\DefineSpamController', ['names' => ['index' =>'spamwords.list']]);
     Route::resource('/no-spam-words', 'App\Http\Controllers\NoSpamWordController');
+
+    Route::post('/subscribe-plan', 'App\Http\Controllers\ContactController@subscribePlan');
 
 });
     Route::get('/log_out', 'App\Http\Controllers\VideoController@logout')->name('log_out');

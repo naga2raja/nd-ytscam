@@ -143,6 +143,7 @@
                 // location.reload();
                 this_form.find('input[id=recipient_name]').val(recipient_name);
                 this_form.find('input[name=_token]').val(token_value);
+                this_form.find('.sent-message').show(0).delay(5000).hide(0);
             } else {
                 this_form.find('.loading').slideUp();
                 if (!msg) {

@@ -132,6 +132,26 @@
                         @endforeach
                     </div>
                     
+                    <!-- Search Section content -->
+                    <section class="content">
+                        <div class="container-fluid pt-3">                            
+                            <div class="row">
+                                <div class="col-md-8 offset-md-2">
+                                    <form action="#" method="post">
+                                        <div class="input-group">
+                                            <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here" id="search_video_title" name="search_video_title">
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-lg btn-default" onclick="getVideosList(false, false, false, true)">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
                     <div id="channelVideosList" class="card-body" style="display: none;max-height: 570px; overflow: overlay;">
                                    
                     </div>
@@ -191,11 +211,16 @@
                     }
                 });
 
-            function getVideosList(id, type=false, token=false) {    
-                 $('.channel_item').removeClass("active");               
-                 $('#'+id).addClass("active");   
+            function getVideosList(id, type=false, token=false, searchTxt=false) {    
+                 //$('.channel_item').removeClass("active");               
+                 //$('#'+id).addClass("active");   
+                 var id =  $(".current_channel_row").attr('id') ;
                  $('.loading').show();       
-                 $('#search_comment_section').hide();    
+                 $('#search_comment_section').hide();   
+                 var searchTitleText = '';
+                 if(searchTxt)  {
+                    searchTitleText = document.getElementById("search_video_title").value;
+                 }
 
                  CurrentChannelId = id;   
 
@@ -208,7 +233,7 @@
                 $.ajax({
                     method: 'POST',
                     url: '/channel/videos/' + id,
-                    data: JSON.stringify({'channel_id': id,  'type': type, 'token' : token, '_token': '{{ csrf_token() }}' }),
+                    data: JSON.stringify({'channel_id': id,  'type': type, 'token' : token, 'search': searchTitleText, '_token': '{{ csrf_token() }}' }),
                     dataType: "json",
                     contentType: 'application/json',
                     success: function(result){
@@ -239,10 +264,10 @@
                         $('a.prev_navigation').hide();
 
                         if(result.prevPageToken) {
-                            list += '<a class="prev_navigation" onclick="getVideosList(\''+id+'\', \'prev\', \''+result.prevPageToken+'\')">Previous</a>';
+                            list += '<a class="prev_navigation" onclick="getVideosList(\''+id+'\', \'prev\', \''+result.prevPageToken+'\', '+ searchTxt+'\)">Previous</a>';
                         }
                         if(result.nextPageToken) {                        
-                            list += '<center><a class="next_navigation btn btn-danger"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\')">Load More</a></center>';
+                            list += '<center><a class="next_navigation btn btn-danger"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\' ,'+ searchTxt+'\)">Load More</a></center>';
                         }
 
                         $('#channelVideosList').show();
@@ -543,6 +568,69 @@
                 getVideosList(channel_id);
                // $("#user_channels_list > .channel-item").click();
             })
+
+            function searchChannelVideos(id=false, type=false, token=false) {
+                var initSection = false;
+                 if(!type) {
+                    var initSection = true;
+                    $('#channelVideosList').html('');
+                 } 
+
+                var searchText = document.getElementById("search_video_title").value;
+                var channel_id =  $(".current_channel_row").attr('id') ;
+                var id = channel_id;
+
+                $.ajax({
+                    method: 'POST',
+                    url: '/videos/search',
+                    data: JSON.stringify({'channel_id' : channel_id, 'search': searchText, 'token': token, '_token': '{{ csrf_token() }}' }),
+                    dataType: "json",
+                    contentType: 'application/json',
+                    success: function(result){
+                        console.log('Search Videos:: ', result); 
+                        var list = '';   
+                        if(!type && !token){                                                          
+                            list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
+                        }                     
+                        list += '<ul class="list-unstyled video-list-thumbs row">';
+                        videos = result.items;
+
+                        var i;
+                        for (i = 0; i < videos.length; ++i) {
+                            var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
+
+                            list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
+                            list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
+                            list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
+                            list += '</a>';
+                            list += '</li>';
+                        }
+                        if(videos.length == 0) {
+                            list += '<li class="col-md-12"> <div class="alert alert-warning">No Videos found</div> </li>';
+                        }
+
+                        list += '</ul>';
+                        $('#channelVideosList a.next_navigation').hide();
+                        $('a.prev_navigation').hide();
+
+                        if(result.prevPageToken) {
+                            list += '<a class="prev_navigation" onclick="searchChannelVideos(\''+id+'\', \'prev\', \''+result.prevPageToken+'\')">Previous</a>';
+                        }
+                        if(result.nextPageToken) {                        
+                            list += '<center><a class="next_navigation btn btn-danger"  onclick="searchChannelVideos(\''+id+'\', \'next\', \''+result.nextPageToken+'\')">Load More</a></center>';
+                        }
+
+                        $('#channelVideosList').show();
+                        $('#channelVideosList').append(list);
+
+                        $('.loading').hide();
+                    },
+                    error: function(xhr, status, error) {                      
+                      console.log(error, 'Your session has been Expired!');
+                      $('.loading').hide();
+                    }
+                });
+            }
         </script>
     @endpush
 @endonce

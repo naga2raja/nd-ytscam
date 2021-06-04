@@ -185,7 +185,7 @@ class VideoController extends Controller
 			    'channelId' => $channelId,
 			    'channelType' => 'channelTypeUnspecified',
 			    'forMine' => false,
-			    'maxResults' => 12,
+			    'maxResults' => 100,
 			    'order' => 'date',
 			    'safeSearch' => 'none',
 			    'type' => 'video',
@@ -194,7 +194,9 @@ class VideoController extends Controller
 			if($request->token) {
 				$queryParams['pageToken'] = $request->token;
 			}
-			// dd($queryParams);
+			if($request->search) {
+				$queryParams['q'] = $request->search;
+			}
 
 			$videos = $youtube->search->listSearch('snippet', $queryParams);	
 			$videos['videos_count'] = $videos['pageInfo']['totalResults'];		
@@ -535,12 +537,14 @@ class VideoController extends Controller
 				$spamResults = $this->checkSpamByComment($comment);
 			} else if(!$spamFlag && $value['replies'] && $value['replies']['comments'] ) {
 				$replySpams = [];
+				$containsSpamreply = false;
 				foreach($value['replies']['comments'] as $repKey => $repValue) {
 					$replyComment = $repValue['snippet']['textDisplay'];
 					$replySpamResults = $this->checkSpamByComment($replyComment);
 					$repSpamFlag = $replySpamResults['is_spam'];
 					$repSentimentalStatus = $replySpamResults['status'];
 					if($repSpamFlag) {
+						$containsSpamreply = true;
 						$repCommentValue['id'] = $repValue['id'];
 						$repCommentValue['snippet'] = $repValue['snippet'];
 						$repCommentValue['etag'] = $repValue['etag'];
@@ -548,15 +552,16 @@ class VideoController extends Controller
 						$replySpams[] = $repCommentValue;							
 					}	
 				}
-				$out[] = [ 
-					'id' => $value['id'], 
-					'topLevelComment' => $value['snippet']['topLevelComment'],
-					'snippet' => $value['snippet'],
-					'totalReplyCount' => $value['snippet']['totalReplyCount'],
-					'replies' => ['comments' => $replySpams],
-					'sentiment_status' => $sentimentalStatus
-				];
-
+				if($containsSpamreply && count($replySpams)) {
+					$out[] = [ 
+						'id' => $value['id'], 
+						'topLevelComment' => $value['snippet']['topLevelComment'],
+						'snippet' => $value['snippet'],
+						'totalReplyCount' => $value['snippet']['totalReplyCount'],
+						'replies' => ['comments' => $replySpams],
+						'sentiment_status' => $sentimentalStatus
+					];
+				}
 			}
     	}
 		return $out;

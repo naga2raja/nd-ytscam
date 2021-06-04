@@ -1,1 +1,19 @@
+.modal-content {
+    box-shadow: none !important;
+}
 
+
+/* Custom CSS for Pricing popup error page*/
+
+#pricingEnquiryModal .validate {
+    color: red;
+}
+
+#pricingEnquiryModal .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
