@@ -209,6 +209,12 @@
            <p> {{ __('Not Spam Words') }}</p>
           </x-nav-link>
         </li>
+        <li class="nav-item">
+          <x-nav-link :href="route('sentiment-analysis')" class="nav-link {{ request()->routeIs('sentiment-analysis') ? 'active' : '' }}">
+            <i class="nav-icon fa fa-comments"></i>
+           <p> {{ __('Sentiment Analysis') }}</p>
+          </x-nav-link>
+        </li>
 
         <li class="nav-item">
             <x-nav-link :href="route('log_out')" class="nav-link">

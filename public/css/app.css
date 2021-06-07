@@ -17,3 +17,22 @@
     padding: 15px;
     font-weight: 600;
 }
+
+
+/* Sentiment Analysis result */
+
+#positive {
+    color: green;
+}
+
+#negative {
+    color: red;
+}
+
+#neutral {
+    color: #be58b6;
+}
+
+.black-text {
+    color: #000;
+}

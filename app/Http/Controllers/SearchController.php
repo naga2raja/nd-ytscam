@@ -14,7 +14,6 @@ use Google_Client;
 use Google_Service_YouTube;
 use Config;
 Use Sentiment\Analyzer;
-session_start();
 
 class SearchController extends Controller
 {
@@ -46,10 +45,6 @@ class SearchController extends Controller
 
         curl_close($curl);
         // echo $response;
-
-
     	return $response;
-
-        dd($request->all());
     }
 }

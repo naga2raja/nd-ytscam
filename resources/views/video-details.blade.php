@@ -43,7 +43,7 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-12">
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments only.">
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments. We can delete viewer's comments.">
                     <i class="fa fa-info"></i>
                 </button>
                 <button type="button" data-toggle="tooltip" data-placement="top" title="Neutral comments" style="border: 0px;">
@@ -383,10 +383,7 @@
                         }
                     }
                 });
-            }
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-              })
+            }            
             
         </script>
     @endpush

@@ -351,6 +351,11 @@ header.bg-white.shadow + main {
       <script src="{{ themeAsset('dist/js/demo.js') }}"></script>
       <script src="{{ themeAsset('/') }}/assets/vendor/php-email-form/validate.js"></script>
       @stack('scripts')
+      <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+      </script>
 
     </body>
 </html>

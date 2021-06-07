@@ -737,7 +737,7 @@ class VideoController extends Controller
 			$spamFlag = false;
 		}    			
 	}
-	return ['status' => $sentimentalStatus, 'is_spam' => $spamFlag];
+	return ['status' => $sentimentalStatus, 'is_spam' => $spamFlag, 'is_defined_spam' => $isDefinedSpam];
   }
 
 }

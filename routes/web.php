@@ -58,6 +58,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/no-spam-words', 'App\Http\Controllers\NoSpamWordController');
 
     Route::post('/subscribe-plan', 'App\Http\Controllers\ContactController@subscribePlan');
+    Route::get('/sentiment-analysis', 'App\Http\Controllers\SentimentAnalysisController@index')->name('sentiment-analysis');
+    Route::post('/sentiment-analysis-check', 'App\Http\Controllers\SentimentAnalysisController@analysis')->name('sentiment-analysis-check');
 
 });
     Route::get('/log_out', 'App\Http\Controllers\VideoController@logout')->name('log_out');
