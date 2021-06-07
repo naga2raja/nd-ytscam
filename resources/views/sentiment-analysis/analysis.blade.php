@@ -40,7 +40,11 @@
                                     @csrf
                                     <div class="form-group row">                                        
                                         <div class="col-sm-12">
-                                          <textarea class="form-control" rows="3" name="comment">@if(@$comment) {{ $comment }} @endif </textarea>                                           
+                                          <textarea class="form-control" rows="3" name="comment" required>@if(@$comment) {{ $comment }} @endif </textarea>                                           
+                                          @if($errors->any())
+                                            <br>
+                                                {!! implode('', $errors->all('<div class="error">:message</div>')) !!}
+                                            @endif  
                                         </div>
                                       </div>
         

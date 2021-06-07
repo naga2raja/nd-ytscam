@@ -146,9 +146,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Solution</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+              ND-YTSCAM identifies the spam and negative comments on the YouTube channel and delete it. It uses a special algorithm to list out the spam comments on the videos. It also uses sentiment analysis to filter the messages. It allows users to declare your own set of words which he considers to be negative or spam.
             </p>
           </div>
         </div>
@@ -280,7 +278,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="">One click Registration</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p>Customers can easily can login with their google account.</p>
             </div>
           </div>
 
@@ -288,7 +286,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4><a href="">Can access more channels</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <p>Customers can use their multiple channels to find spam comments in your YouTube videos</p>
             </div>
           </div>
 
@@ -296,7 +294,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4><a href="">Sentiment Analysis to find spam comments</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <p>ND-YTSCAM using Sentiment Analysis to find spam comments in the videos.</p>
             </div>
           </div>
 
@@ -304,7 +302,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
               <h4><a href="">Define Own Spam words</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p>Customer can declare his own set of words which he considers to be negative or spam </p>
             </div>
           </div>
           
@@ -312,7 +310,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
               <h4><a href="">Delete Spam Comments</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p>Customer can delete multiple comments from ND-YTSCAM</p>
             </div>
           </div>
 
@@ -326,16 +324,15 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
-          <div class="col-lg-12 text-center text-lg-center">
-            <h3>Why ND-YTScam is needed?</h3>
-            <p> Spam comments on YouTube are really a headache of the channel owners. They have a 100's of spam messages and promotion messages, which is difficult for the owners to go through the message and delete all the spam messages. Even though YouTube has its own logic to filter the spam, it filters only 10% of the comments.</p>
-            <p> ND-YTScam helps to manage youtube spam comments.</p>
+          <div class="col-lg-9 text-center text-lg-center">
+            <!-- <h3>Why ND-YTScam is needed?</h3> -->
+            <p>For more information, Please Download our e-Brouchre</p>
           </div>
-          <!--
+          
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+            <a class="cta-btn align-middle" href="#">Download</a>
           </div>
-        -->
+      
         </div>
 
       </div>
@@ -550,7 +547,7 @@
 
         <div class="section-title">
           <h2>Pricing</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
         <div class="row">

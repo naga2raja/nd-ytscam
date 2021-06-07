@@ -12,6 +12,9 @@ class SentimentAnalysisController extends Controller
     }
 
     public function analysis(Request $request) {
+        $request->validate([
+            'comment' => 'required',
+        ]);
         $videoController = new VideoController;
         $comment = trim($request->comment);
         $spamResults = $videoController->checkSpamByComment($comment);
