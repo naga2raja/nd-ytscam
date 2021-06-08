@@ -1,7 +1,7 @@
 <x-guest-layout>
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><img src="{{ themeAsset('/') }}/assets/img/nd-ytscam-logo.png" alt="ND-YTSCAM" style="width: 100%"></a>
+    <a href="#"><img src="{{ themeAsset('/') }}/assets/img/nd-ytscam-logo-mr.png" alt="ND-YTSCAM" style="width: 100%"></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -56,6 +56,7 @@
         <a href="/auth/redirect" class="btn btn-block btn-danger">
           <i class="fab fa-google mr-2"></i> Sign in using Google
         </a>
+        <p class="login-box-msg"><br> YouTube channel owner login email address to be used for sign in.</p>
       </div>
       <!-- /.social-auth-links -->
 

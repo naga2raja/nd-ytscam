@@ -26,7 +26,7 @@
         </style>  
     </head>
     <body class="hold-transition login-page" style="/*background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);*/ background: #000;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);*/ background: #fff;
     ">
         <div>
             {{ $slot }}
