@@ -5,8 +5,8 @@
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+    <div class="card-body login-card-body" style="padding: 15px 0px;">
+      <!-- <p class="login-box-msg">Sign in to start your session</p> -->
       <!-- Session Status -->
       <x-auth-session-status class="alert alert-danger" :status="session('status')" />
 
@@ -53,10 +53,10 @@
         <!-- <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
         </a> -->
-        <a href="/auth/redirect" class="btn btn-block btn-danger">
+        <a href="/auth/redirect" class="btn btn-block btn-lg btn-danger">
           <i class="fab fa-google mr-2"></i> Sign in using Google
         </a>
-        <p class="login-box-msg"><br> YouTube channel owner login email address to be used for sign in.</p>
+        <p><br> Please login with Youtube Channel Owner account.</p>
       </div>
       <!-- /.social-auth-links -->
 
