@@ -25,8 +25,8 @@
             .card, .login-card-body, .register-card-body { background: none; box-shadow: none; border: 0px;}
         </style>  
     </head>
-    <body class="hold-transition login-page" style="background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    <body class="hold-transition login-page" style="/*background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);*/ background: #000;
     ">
         <div>
             {{ $slot }}

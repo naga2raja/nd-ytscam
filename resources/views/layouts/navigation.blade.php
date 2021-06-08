@@ -142,8 +142,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-      <img src="/public/images/cabcs-group-india_logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><!-- ND-YTScam <br> --> A Product of CABC'S <br>Group India</span>
+      <img src="{{ themeAsset('/') }}/assets/img/nd-ytscam-logo.png" alt="Logo" class="brand-image img-circle-elevation-3">
+      <span class="brand-text font-weight-light"> <!-- A Product of CABC'S <br>Group India --> &nbsp; </span> 
     </a>
 
     <!-- Sidebar -->

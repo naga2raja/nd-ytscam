@@ -1,7 +1,7 @@
 <x-guest-layout>
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><img src="/public/images/cabcs-group-india_logo.png" alt="ND_YTSCAM"></a>
+    <a href="#"><img src="{{ themeAsset('/') }}/assets/img/nd-ytscam-logo.png" alt="ND-YTSCAM" style="width: 100%"></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
