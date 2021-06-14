@@ -78,7 +78,7 @@
           <h2>We identify the spam comments, promotional messages, negative comments on your YouTube channel videos and delete it.</h2>
           <div class="d-lg-flex">
             <a href="/login" class="btn-get-started">Try Now</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+            <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a> -->
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -326,7 +326,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-center">
             <!-- <h3>Why ND-YTScam is needed?</h3> -->
-            <p>For more information, Please Download our e-Brouchre</p>
+            <p>For more information, Please check our user instruction manual</p>
           </div>
           
           <div class="col-lg-3 cta-btn-container text-center">
