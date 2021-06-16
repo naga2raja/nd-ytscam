@@ -26,6 +26,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy');
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();

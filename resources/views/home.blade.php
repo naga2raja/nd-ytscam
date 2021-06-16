@@ -779,7 +779,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Pricing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/privacy-policy">Privacy policy</a></li>
             </ul>
           </div>          
 
