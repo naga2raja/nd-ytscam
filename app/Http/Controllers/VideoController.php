@@ -531,7 +531,7 @@ class VideoController extends Controller
 					'snippet' => $value['snippet'],
 					'totalReplyCount' => $value['snippet']['totalReplyCount'],
 					'replies' => ['comments' => $replySpams],
-					'sentiment_status' => $sentimentalStatus
+					'sentiment_status' => ($sentimentalStatus == 'pos') ? 'neg' : $sentimentalStatus
 				];				
 
 				$spamResults = $this->checkSpamByComment($comment);
