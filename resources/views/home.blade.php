@@ -37,8 +37,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#features">Features</a></li>
           <!-- <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>  -->
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#team">Team</a></li>  
+          <li><a href="#pricing">Pricing</a></li>-->
           <!--
           <li class="drop-down"><a href="">Drop Down</a>
             <ul>
@@ -542,7 +542,7 @@
     <!-- End Team Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing" style="display: none">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -777,7 +777,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Pricing</a></li>
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Pricing</a></li>-->
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/privacy-policy">Privacy policy</a></li>
             </ul>
