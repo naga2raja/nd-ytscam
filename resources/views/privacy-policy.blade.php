@@ -173,7 +173,6 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#features">Features</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#pricing">Pricing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/privacy-policy">Privacy policy</a></li>
             </ul>
           </div>          
@@ -182,11 +181,12 @@
             <h4>Our Social Networks</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+                            <a href="https://www.youtube.com/channel/UCd534sdaoHx7D_XV1kRBhOA" target="_blank" class="youtube"><i class="bx bxl-youtube"></i></a>
+                            <a href="https://www.facebook.com/people/Ndytscam-Nospam/100069688635217/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.instagram.com/ndytscam/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/nd-ytscam-application-983819215/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            
             </div>
           </div>
 
