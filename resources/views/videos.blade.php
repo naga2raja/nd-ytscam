@@ -125,10 +125,9 @@
                         @foreach ($channelsList as $channel)
                         
                         <div id="{{ $channel->id }}" class="card-header current_channel_row">                            
-                                    <h3 class="card-title" style="font-size: 1.5rem;"><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >  {{ $channel->snippet->title }} </h3>
-                               
-                        <!-- {{ $channel->id }}  -->
-                    </div>
+                            <h3 class="card-title" style="font-size: 1.5rem;"><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="border-radius: 50%;" >  {{ $channel->snippet->title }} </h3>                               
+                            <!-- {{ $channel->id }}  -->
+                        </div>
                         @endforeach
                     </div>
                     

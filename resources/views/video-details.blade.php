@@ -30,89 +30,109 @@
         .marquee_text_highlight {  font-weight: 600; color: red; }
     </style>
 
-    <div class="row">
-        <div class="col-md-12">
-            <a href="javascript:window.close()" class="btn btn-success pull-right mt-3"><i class="fa fa-arrow-left"> </i> Back</a>
-        </div>
-    </div>
-        <div style="clear:both;"></div>
-        <br>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-12">
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments. We can delete viewer's comments.">
-                    <i class="fa fa-info"></i>
-                </button>
-                <button type="button" data-toggle="tooltip" data-placement="top" title="Neutral comments" style="border: 0px;">
-                    <span class="right badge badge-warning">neu</span>
-                </button>
-                <button type="button" data-toggle="tooltip" data-placement="top" title="Negative comments" style="border: 0px;">
-                    <span class="right badge badge-danger">neg</span>
-                </button>                
-                <button type="button" data-toggle="tooltip" data-placement="top" title="Positive comments" style="border: 0px;">
-                    <span class="right badge badge-success">pos</span>
-                </button> 
-            </div>
-            <div class="col-md-12 pt-2">
-                @if($spamWords && $spamWords->spam_words)
-                <div class="card card-warning">
-                    <div class="card-header">
-                      <h3 class="card-title">Custom Words</h3>
-      
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                      </div>
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body" style="display: block;">
-                        {{ $spamWords->spam_words }} 
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                @endIf
-            </div>
-            <div class="col-md-12">
-                @if($noSpamWords && $noSpamWords->spam_words)
-                    <div class="card card-primary">
-                        <div class="card-header">
-                        <h3 class="card-title">Not Spam Words</h3>
-        
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body" style="display: block;">
-                            {{ $noSpamWords->spam_words }} 
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                @endIf
-            </div>
-        </div>
 
-        {{-- <div class="col-md-12"> <marquee class="marquee_text_highlight"></marquee> </div> --}}
+    <div class="col-md-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        </div>        
+
+        <div class="row">                         
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    
+
+                    <div id="user_channels_list">
+                        <div class="card-header current_channel_row">
+                            <div class="col-md-12">
+                                <a href="javascript:window.close()" class="btn btn-success pull-right mt-3"><i class="fa fa-arrow-left"> </i> Back</a>
+                            </div>
+                            <div style="clear:both;"></div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Video owner's comments can't delete from here, since YouTube not providing delete access for owner's comments. We can delete viewer's comments.">
+                                            <i class="fa fa-info"></i>
+                                        </button>
+                                        <button type="button" data-toggle="tooltip" data-placement="top" title="Neutral comments" style="border: 0px;">
+                                            <span class="right badge badge-warning">neu</span>
+                                        </button>
+                                        <button type="button" data-toggle="tooltip" data-placement="top" title="Negative comments" style="border: 0px;">
+                                            <span class="right badge badge-danger">neg</span>
+                                        </button>                
+                                        <button type="button" data-toggle="tooltip" data-placement="top" title="Positive comments" style="border: 0px;">
+                                            <span class="right badge badge-success">pos</span>
+                                        </button> 
+                                    </div>
+                                    <div class="col-md-12 pt-2">
+                                        @if($spamWords && $spamWords->spam_words)
+                                        <div class="card card-warning">
+                                            <div class="card-header">
+                                              <h3 class="card-title">Custom Words</h3>
+                              
+                                              <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                  <i class="fas fa-minus"></i>
+                                                </button>
+                                              </div>
+                                              <!-- /.card-tools -->
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body" style="display: block;">
+                                                {{ $spamWords->spam_words }} 
+                                            </div>
+                                            <!-- /.card-body -->
+                                          </div>
+                                        @endIf
+                                    </div>
+                                    <div class="col-md-12">
+                                        @if($noSpamWords && $noSpamWords->spam_words)
+                                            <div class="card card-primary">
+                                                <div class="card-header">
+                                                <h3 class="card-title">Not Spam Words</h3>
+                                
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- /.card-tools -->
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="card-body" style="display: block;">
+                                                    {{ $noSpamWords->spam_words }} 
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                        @endIf
+                                    </div>
+                                </div>
+
+                                {{-- <div class="col-md-12"> <marquee class="marquee_text_highlight"></marquee> </div> --}}
+                            </div>
+
+                            
+
+                            <div class="row" id="commens_list_section">
+                                <div class="col-md-6">
+                                        <div id="channelCommentsList" class="card card-primary card-outline" style="display: none;"></div >
+                                </div>
+                                <div class="col-md-6">
+                                        <div id="videoSpamCommentsList" class="card card-danger card-outline" style="display: none;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                                        
+                </div>                    
+            </div>
+          </div>
     </div>
 
     
-
-    <div class="row" id="commens_list_section">
-        <div class="col-md-6">
-                <div id="channelCommentsList" class="card card-primary card-outline" style="display: none;"></div >
-        </div>
-        <div class="col-md-6">
-                <div id="videoSpamCommentsList" class="card card-danger card-outline" style="display: none;"></div>
-        </div>
-    </div    
 
 @once
     @push('scripts')
