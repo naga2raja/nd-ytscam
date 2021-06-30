@@ -231,7 +231,7 @@
                     console.log('Parent comment id ', videos[i]['id']);
                     var publishedAt = moment(videos[i]['snippet']['topLevelComment']['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
 
-                    list += '<li id="'+title+'_'+videos[i]['id']+'" class="'+title+'_comments list-group-item"> <div class="icheck-primary"><input type="checkbox" id="'+title+'_cmt_'+videos[i]['id']+'" class="parent_comment" value="'+ videos[i]['id'] +'">';
+                    list += '<li id="'+title+'_'+videos[i]['id']+'" class="'+title+'_comments list-group-item"> <div class="icheck-primary"><input type="checkbox" id="'+title+'_cmt_'+videos[i]['id']+'" class="parent_comment" value="'+ videos[i]['id'] +'ndyt____ndyt'+videos[i]['snippet']['topLevelComment']['snippet']['textDisplay']+'">';
                     list += '<label for="'+title+'_cmt_'+videos[i]['id']+'">'+ videos[i]['snippet']['topLevelComment']['snippet']['textDisplay'] +' - '+ videos[i]['snippet']['topLevelComment']['snippet']['authorDisplayName'];
                     if(videos[i]['sentiment_status'] && videos[i]['sentiment_status'] == 'neu') {
                          list += ' <span class="right badge badge-warning"> '+videos[i]['sentiment_status']+'</span> ';
@@ -260,7 +260,7 @@
                             }
                             console.log('TESt', replybadge, replies[j]);
                            
-                            list += '<div class="gap-3 ml-6" style="padding-left: 25px;"><div class="icheck-primary pr-2"> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'"> <label for="child_cmt_'+title+ replies[j]['id'] +'">' + replies[j]['snippet']['textDisplay'] + ' - ' + replies[j]['snippet']['authorDisplayName'] + ' ' + replybadge + ' ' + moment(replies[j]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a') + '</label></div></div>';
+                            list += '<div class="gap-3 ml-6" style="padding-left: 25px;"><div class="icheck-primary pr-2"> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'ndyt____ndyt'+ replies[j]['snippet']['textDisplay'] +'"> <label for="child_cmt_'+title+ replies[j]['id'] +'">' + replies[j]['snippet']['textDisplay'] + ' - ' + replies[j]['snippet']['authorDisplayName'] + ' ' + replybadge + ' ' + moment(replies[j]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a') + '</label></div></div>';
                         }
                     }
 
@@ -348,7 +348,8 @@
 
                 var selectedComments = [];
                 $('#'+comment_section+' input[type="checkbox"]:checked').each(function(){
-                    selectedComments.push($(this).val());
+                    var selected_comments_del = $(this).val();
+                    selectedComments.push(selected_comments_del.split('ndyt____ndyt'));
                 });                
 
                 if(selectedComments.length == 0) {
@@ -363,10 +364,12 @@
                 var parentComments = [];
                 var replyComments = [];
                 $('#'+comment_section+' .parent_comment:checked').each(function(){
-                    parentComments.push($(this).val());
+                    var comment_del = $(this).val();
+                    parentComments.push(comment_del.split('ndyt____ndyt'));
                 });
                 $('#'+comment_section+' .reply_comment:checked').each(function(){
-                    replyComments.push($(this).val());
+                    var reply_comment_del = $(this).val();
+                    replyComments.push(reply_comment_del.split('ndyt____ndyt'));
                 });
 
                 $('.loading').show();
@@ -374,7 +377,7 @@
                 $.ajax({
                     method: 'POST',
                     url: '/comments/delete',
-                    data: JSON.stringify({'comments_ids': selectedComments, 'reply_comments': replyComments, 'parent_comments': parentComments, "_token": "{{ csrf_token() }}" }),
+                    data: JSON.stringify({'comments_ids': selectedComments, 'reply_comments': replyComments, 'parent_comments': parentComments, 'video_id': CurrentCommentVideoId, "_token": "{{ csrf_token() }}" }),
                     dataType: "json",
                     contentType: 'application/json',
                     success: function(result) {
