@@ -124,9 +124,10 @@ class VideoController extends Controller
 
 		  $authUrl = $client->createAuthUrl();
 		  return redirect($authUrl);
-		  $htmlBody = '
+		  $htmlBody = <<<END
 		    <h3>Authorization Required</h3>
-		    <p>You need to <a href="'.$authUrl.'" style="text-decoration: underline;">authorize access</a> before proceeding.<p>';
+		    <p>You need to <a href="$authUrl" style="text-decoration: underline;">authorize access</a> before proceeding.<p>
+		END;
 		}	
 		$spamWords = UserSpamWord::where('user_id', Auth::user()->id)->selectRaw('GROUP_CONCAT(" ", spam_word, " ") as spam_words')->first();	
 		return view('videos', compact('htmlBody', 'channels', 'channelsCount', 'channelsList', 'spamWords'));
@@ -294,7 +295,7 @@ class VideoController extends Controller
     	} 
 
     	$deletedCount = $this->getApiRequestCount('delete'); 
-    	$currentPlanDetails = $this->getCurrentSubscriptionPlan();		
+    	$currentPlanDetails = $this->getCurrentSubscriptionPlan();
     	$deleteCommentsCount = $currentPlanDetails->delete_comments_count;
     	if($deletedCount && $deletedCount >= $deleteCommentsCount){
     		$output['status'] = 'Failed';
@@ -345,62 +346,43 @@ class VideoController extends Controller
 			try {
 
 				//for parentComments
-				if(count($commentIds)) {
+				if(count($parentComments)) {
 					if($deletedCount && $deletedCount >= $deleteCommentsCount){
 			    		$output['status'] = 'Failed';
 			    		$output['message'] = 'Failed';
 			    		return response()->json($output);
 			    	}
-					$deleteParentCommentIds = [];
-					$insertArr = []; 
-					foreach($commentIds as $comment) {						
-						$cmtId = $comment[0];
-						$message = $comment[1];
-						$deleteParentCommentIds[] = $cmtId;
-						$insertArr[] = [
-							'user_id' => Auth::user()->id,
-							'api_type' => 'delete',
-							'unit_cost' => '50',
-							'yt_video_id' => $request->video_id,
-							'yt_comment_id' => $cmtId,
-							'yt_comment' => $message
-						];
-					}
-					$deleteComentIds = implode(',', $deleteParentCommentIds);		  				
+
+					$deleteComentIds = implode(',', $parentComments);		  				
 					$youtube->comments->setModerationStatus($deleteComentIds, 'rejected');
 
 					$deletedCount++;
 
-					// $delete = new YoutubeApiRequest;
-					// $delete->user_id = Auth::user()->id;
-					// $delete->api_type = 'delete';
-					// $delete->unit_cost = '50';
-					// $delete->save();			
-					YoutubeApiRequest::insert($insertArr);
+					$delete = new YoutubeApiRequest;
+					$delete->user_id = Auth::user()->id;
+					$delete->api_type = 'delete';
+					$delete->unit_cost = '50';
+					$delete->save();			
 				}
 
-				//for replies				
-				// foreach ($replyComments as $comment) {		
-				// 	if($deletedCount && $deletedCount >= $deleteCommentsCount){
-			    // 		$output['status'] = 'Failed';
-			    // 		$output['message'] = 'Failed';
-			    // 		// return response()->json($output);
-			    // 	}
-				// 	// dd($comment);
+				//for replies
+				foreach ($replyComments as $comment) {		
+					if($deletedCount && $deletedCount >= $deleteCommentsCount){
+			    		$output['status'] = 'Failed';
+			    		$output['message'] = 'Failed';
+			    		return response()->json($output);
+			    	}
 
-				// 	$res = $youtube->comments->delete($comment[0]);
+					$res = $youtube->comments->delete($comment);
 
-				// 	$deletedCount++;
+					$deletedCount++;
 
-				// 	$delete = new YoutubeApiRequest;
-				// 	$delete->user_id = Auth::user()->id;
-				// 	$delete->api_type = 'delete';
-				// 	$delete->unit_cost = '50';
-				// 	$delete->yt_comment_id = $comment[0];
-				// 	$delete->yt_comment = $comment[1];
-				// 	$delete->yt_video_id = $request->video_id;
-				// 	$delete->save();
-				// }
+					$delete = new YoutubeApiRequest;
+					$delete->user_id = Auth::user()->id;
+					$delete->api_type = 'delete';
+					$delete->unit_cost = '50';
+					$delete->save();
+				}
 				$htmlBody = 'success';
 			} catch (Google_Service_Exception $e) {	
 		    $htmlBody .= sprintf('<p>A service error occurred: <code>%s</code></p>',

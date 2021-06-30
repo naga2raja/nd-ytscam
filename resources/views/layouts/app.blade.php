@@ -137,13 +137,6 @@ footer {
     
 }*/
 
-
-.cabcs-pagination svg { width: 15px;  }
-.cabcs-pagination .flex.justify-between.flex-1.sm\:hidden {  display: none;  }
-.cabcs-pagination p.text-sm.text-gray-700.leading-5 {
-    text-align: center;
-}
-
  /* Absolute Center Spinner */
 .loading {
   position: fixed;
@@ -357,7 +350,6 @@ header.bg-white.shadow + main {
       <!-- AdminLTE for demo purposes -->
       <script src="{{ themeAsset('dist/js/demo.js') }}"></script>
       <script src="{{ themeAsset('/') }}/assets/vendor/php-email-form/validate.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
       @stack('scripts')
       <script>
         $(function () {

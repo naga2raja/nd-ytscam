@@ -64,9 +64,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/sentiment-analysis', 'App\Http\Controllers\SentimentAnalysisController@index')->name('sentiment-analysis');
     Route::post('/sentiment-analysis-check', 'App\Http\Controllers\SentimentAnalysisController@analysis')->name('sentiment-analysis-check');
 
-    Route::get('/reports', 'App\Http\Controllers\ReportController@index')->name('reports');
-    Route::get('/download', 'App\Http\Controllers\ReportController@export')->name('download');
-
 });
     Route::get('/log_out', 'App\Http\Controllers\VideoController@logout')->name('log_out');
 

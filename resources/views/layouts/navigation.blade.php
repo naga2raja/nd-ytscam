@@ -191,12 +191,12 @@
               </p>
             </x-nav-link>   
           </li>
-       <li class="nav-item">
+        <!-- <li class="nav-item">
             <x-nav-link :href="route('dashboard')" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-suitcase"></i>
                 <p>{{ __('Subscription') }}</p>
             </x-nav-link>
-        </li> 
+        </li> -->
         <li class="nav-item">
           <x-nav-link :href="route('spamwords.list')" class="nav-link {{ request()->routeIs('spamwords.list') ? 'active' : '' }}">
             <i class="nav-icon fas fa-trash"></i>
@@ -215,14 +215,6 @@
            <p> {{ __('Sentiment Analysis') }}</p>
           </x-nav-link>
         </li>
-        @if(session()->get('subscription_plan') == 'Gold') 
-        <li class="nav-item">
-          <x-nav-link :href="route('reports')" class="nav-link {{ request()->routeIs('reports') ? 'active' : '' }}">
-            <i class="nav-icon fa fa-file"></i>
-           <p> {{ __('Report') }}</p>
-          </x-nav-link>
-        </li>
-        @endIf
 
         <li class="nav-item">
             <x-nav-link :href="route('log_out')" class="nav-link">
