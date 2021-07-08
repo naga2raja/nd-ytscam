@@ -37,6 +37,13 @@ Route::get('/auth/redirect', function () {
 Route::get('/new-theme-index', function () {
     return view('layouts/newapp');
 });
+Route::get('/agree-privacy-policy/{userId}', function () {
+    // dd('agree');
+    return view('agree-privacy-policy');
+})->name('agree-privacy-policy');
+Route::post('login_app', 'App\Http\Controllers\Auth\RegisteredUserController@loginNow')->name('login_app');
+
+
 Route::post('/contact', 'App\Http\Controllers\ContactController@contact');
 Route::post('/plan-enquiry', 'App\Http\Controllers\ContactController@planEnquiry');
 

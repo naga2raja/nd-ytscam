@@ -76,9 +76,10 @@ class RegisteredUserController extends Controller
         session(['access_token' => $accessToken]);
         if($existingUser){
             // log them in            
-            auth()->login($existingUser, true);
+            //auth()->login($existingUser, true);
             $userSubscription = UserSubscription::where('user_id', $existingUser->id)->where('status', 1)->first();
             $subscription_id = $userSubscription->subscription_id;
+            $userId = $existingUser->id;
         } else {
             // create a new user
             $newUser                  = new User;
@@ -88,7 +89,7 @@ class RegisteredUserController extends Controller
             $newUser->password        = Hash::make('dummy@321');
             // $newUser->avatar_original = $user->avatar_original;
             $newUser->save();            
-            auth()->login($newUser, true);
+            //auth()->login($newUser, true);
 
             //create Default subscription Plan
             $subscription_id = 1;
@@ -96,15 +97,28 @@ class RegisteredUserController extends Controller
             $userSubscription->user_id = $newUser->id;
             $userSubscription->subscription_id = $subscription_id; //Free
             $userSubscription->status = 1; // Active
-            $userSubscription->save();    
+            $userSubscription->save(); 
 
+            $userId = $newUser->id;
         }      
 
         $subscriptionPlan = SubscriptionPlan::where('id', $subscription_id)->first();
-        Session::put('subscription_plan', $subscriptionPlan->name);
+        Session::put('subscription_plan', $subscriptionPlan->name); 
 
-        return redirect('video');
+        return redirect('agree-privacy-policy/'. base64_encode($userId) );        
         // return redirect(RouteServiceProvider::HOME);
         
+    }
+
+    public function loginNow(Request $request)
+    {
+        $userId = base64_decode($request->id);
+        $existingUser = User::where('id', $userId)->first();
+        if($existingUser) {
+            auth()->login($existingUser, true); 
+            return redirect('video');
+        } else {
+            return redirect('login');
+        }
     }
 }
