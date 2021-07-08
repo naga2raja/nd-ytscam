@@ -786,9 +786,11 @@
           <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+
+
             <div class="social-links mt-3">
               <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-              <a href="https://www.youtube.com/channel/UCd534sdaoHx7D_XV1kRBhOA" target="_blank" class="youtube"><i class="bx bxl-youtube"></i></a>
+              <a style=" background: none;" href="https://www.youtube.com/channel/UCd534sdaoHx7D_XV1kRBhOA" target="_blank" class="youtube"><img style="width: 36px" src="{{ themeAsset('/') }}/assets/img/yticon.jpg"></a>
               <a href="https://www.facebook.com/people/Ndytscam-Nospam/100069688635217/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="https://www.instagram.com/ndytscam/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="https://www.linkedin.com/in/nd-ytscam-application-983819215/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
