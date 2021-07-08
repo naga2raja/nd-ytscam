@@ -9,6 +9,6 @@ if (! function_exists('themeAsset')) {
      */
     function themeAsset($path, $secure = null)
     {
-        return app('url')->asset('/public/'.$path, $secure);
+        return app('url')->asset('/public/admin/'.$path, $secure);
     }
 }
