@@ -209,12 +209,14 @@
            <p> {{ __('Not Spam Words') }}</p>
           </x-nav-link>
         </li>
+        <!--
         <li class="nav-item">
           <x-nav-link :href="route('sentiment-analysis')" class="nav-link {{ request()->routeIs('sentiment-analysis') ? 'active' : '' }}">
             <i class="nav-icon fa fa-comments"></i>
            <p> {{ __('Sentiment Analysis') }}</p>
           </x-nav-link>
         </li>
+      -->
         @if(session()->get('subscription_plan') == 'Gold') 
         <li class="nav-item">
           <x-nav-link :href="route('reports')" class="nav-link {{ request()->routeIs('reports') ? 'active' : '' }}">
