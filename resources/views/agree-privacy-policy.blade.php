@@ -90,7 +90,7 @@
 <p><b>ND-YTSCAM</b> is committed to securing your data and keeping it confidential. <b>ND-YTSCAM</b> has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.</p>
 <p><b>Note: Except your name and email, we are not collecting/saving any of your information. </b></p>
 
-<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="security.google.com/settings/security/permissions" target="_blank">here</a>.
+<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="https://security.google.com/settings/security/permissions" target="_blank">here</a>.
  
 <h3>Restricting the Collection of your Personal Data</h3>
 <p>At some point, you might wish to restrict the use and collection of your personal data. You can achieve this by doing the following:</p>
