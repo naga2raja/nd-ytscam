@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ themeAsset('/') }}/assets/img/162607228115499892-new.png" class="img-fluid animated" alt="">
+          <img src="{{ themeAsset('/') }}/assets/img/home-banner-updated.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>

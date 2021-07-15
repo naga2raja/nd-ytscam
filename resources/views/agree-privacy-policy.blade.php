@@ -62,7 +62,8 @@
                 This privacy policy will help you understand how <b>ND-YTSCAM</b> uses and protects the data you provide to us when you visit and use <b>ND-YTSCAM</b> application service. </p>
             <p>
                 We reserve the right to change this policy at any given time, of which you will be promptly updated. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this page.                
-            </p>  
+            </p> 
+            <p>When user agree ND-YTSCAM privacy policy it includes the users are agreeing <a href="https://www.youtube.com/t/terms" target="_blank">YouTube's Terms of Service</a>.</p> 
 
 <h3>          What User Data We Collect </h3>
 <p>When you visit the website, we may collect the following data: </p>
@@ -73,6 +74,8 @@
 <p>We are authenticating user with Google oAuth 2 and get user data like email and name from the oAuth response. We are collecting user YouTube Channels, Videos and comments data using the <a href="https://developers.google.com/youtube/terms/developer-policies" target="_blank">YouTube Api Services.</a></p>
 
 <p>We have followed Google <a href="https://policies.google.com/terms?hl=en-US#toc-using" target="_blank">Terms of Service</a> and <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Privacy Policy</a></p>
+<p>ND-YTSCAM is not collecting any information about the user devices and not storing anything about devices. We also not storing any cookies in user browsers and devices.</p>
+
 <h3>Why We Collect Your Data</h3>
 <p>We are collecting your data for several reasons:</p>
 <ul style="list-style: disc; padding-left: 25px;">
@@ -87,7 +90,7 @@
 <p><b>ND-YTSCAM</b> is committed to securing your data and keeping it confidential. <b>ND-YTSCAM</b> has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.</p>
 <p><b>Note: Except your name and email, we are not collecting/saving any of your information. </b></p>
 
-<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="https://support.google.com/accounts/answer/3466521?hl=en" target="_blank">here</a>.
+<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="security.google.com/settings/security/permissions" target="_blank">here</a>.
  
 <h3>Restricting the Collection of your Personal Data</h3>
 <p>At some point, you might wish to restrict the use and collection of your personal data. You can achieve this by doing the following:</p>

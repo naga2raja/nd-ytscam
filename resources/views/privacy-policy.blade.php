@@ -38,7 +38,7 @@
           <li><a href="{{ route('home') }}/#features">Features</a></li>
           <!-- <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>  -->
-          <li><a href="{{ route('home') }}/#pricing">Pricing</a></li>
+          <!-- <li><a href="{{ route('home') }}/#pricing">Pricing</a></li> -->
           <!--
           <li class="drop-down"><a href="">Drop Down</a>
             <ul>
@@ -89,6 +89,8 @@
                 We reserve the right to change this policy at any given time, of which you will be promptly updated. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this page.                
             </p>  
 
+            <p>When user agree ND-YTSCAM privacy policy it includes the users are agreeing <a href="https://www.youtube.com/t/terms" target="_blank">YouTube's Terms of Service</a>.</p>
+
 <h3>          What User Data We Collect </h3>
 <p>When you visit the website, we may collect the following data: </p>
 <ul style="list-style: disc; padding-left: 25px;">
@@ -98,6 +100,8 @@
 <p>We are authenticating user with Google oAuth 2 and get user data like email and name from the oAuth response. We are collecting user YouTube Channels, Videos and comments data using the <a href="https://developers.google.com/youtube/terms/developer-policies" target="_blank">YouTube Api Services.</a></p>
 
 <p>We have followed Google <a href="https://policies.google.com/terms?hl=en-US#toc-using" target="_blank">Terms of Service</a> and <a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Privacy Policy</a></p>
+<p>ND-YTSCAM is not collecting any information about the user devices and not storing anything about devices. We also not storing any cookies in user browsers and devices.</p>
+
 <h3>Why We Collect Your Data</h3>
 <p>We are collecting your data for several reasons:</p>
 <ul style="list-style: disc; padding-left: 25px;">
@@ -112,7 +116,7 @@
 <p><b>ND-YTSCAM</b> is committed to securing your data and keeping it confidential. <b>ND-YTSCAM</b> has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.</p>
 <p><b>Note: Except your name and email, we are not collecting/saving any of your information. </b></p>
 
-<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="https://support.google.com/accounts/answer/3466521?hl=en" target="_blank">here</a>.
+<p>If any user want to remove their access for our ND-YTSCAM application, they can remove access from their gmail account in the Third pary management section. You can find the instruction <a href="https://security.google.com/settings/security/permissions" target="_blank">here</a>.
 <!--
 <h3>Our Cookie Policy</h3>
 <p>Once you agree to allow our website to use cookies, you also agree to use the data it collects regarding your online behavior (analyze web traffic, web pages you spend the most time on, and websites you visit).</p>
@@ -176,7 +180,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#features">Features</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#pricing">Pricing</a></li>
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/#pricing">Pricing</a></li> -->
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}/privacy-policy">Privacy policy</a></li>
             </ul>
           </div>          
@@ -186,7 +190,7 @@
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
                             <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-                            <a href="https://www.youtube.com/channel/UCd534sdaoHx7D_XV1kRBhOA" target="_blank" class="youtube"><i class="bx bxl-youtube"></i></a>
+                            <a style=" background: none;" href="https://www.youtube.com/channel/UCd534sdaoHx7D_XV1kRBhOA" target="_blank" class="youtube"><img style="width: 36px" src="{{ themeAsset('/') }}/assets/img/yticon.jpg"></a>
                             <a href="https://www.facebook.com/people/Ndytscam-Nospam/100069688635217/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="https://www.instagram.com/ndytscam/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="https://www.linkedin.com/in/nd-ytscam-application-983819215/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
