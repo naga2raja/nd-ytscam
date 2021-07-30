@@ -246,13 +246,16 @@
 
                         var i;
                         for (i = 0; i < videos.length; ++i) {
-                            var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
+                            console.log('snippet', videos[i]['snippet']);
+                            if(videos[i]['snippet']) {
+                                var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
 
-                            list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
-                            list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
-                            list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
-                            list += '</a>';
-                            list += '</li>';
+                                list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
+                                list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
+                                list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
+                                list += '</a>';
+                                list += '</li>';                                
+                            }
                         }
                         if(videos.length == 0) {
                             list += '<li class="col-md-12"> <div class="alert alert-warning">No Videos found</div> </li>';
