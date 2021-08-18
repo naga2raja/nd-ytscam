@@ -15,6 +15,10 @@ use Config;
 Use Sentiment\Analyzer;
 session_start();
 
+use App\Http\Controllers\sentiment\NdytscamSentimentAnalyzer;
+use App\Http\Controllers\sentiment\NdytscamSentimentAnalyzerTest;
+
+
 class VideoController extends Controller
 {
     public function index()
@@ -643,14 +647,32 @@ class VideoController extends Controller
     	return $currentPlan;
     }
 
-    public function detectSentiment($string){
+    public function detectSentiment($string){  
+    	
+    	$sat = new NdytscamSentimentAnalyzerTest(new NdytscamSentimentAnalyzer());
+    	$sat->trainAnalyzer(base_path().'\app\http\controllers\sentiment\trainingSet\data.neg', 'negative', 5000); //training with negative data
+		$sat->trainAnalyzer(base_path().'\app\http\controllers\sentiment\trainingSet\data.pos', 'positive', 5000); //trainign with positive data
+		$sentimentAnalysisOfSentence = $sat->analyzeSentence($string);
+		$resultofAnalyzingSentence = $sentimentAnalysisOfSentence['sentiment'];
+		$probabilityofSentenceBeingPositive = $sentimentAnalysisOfSentence['accuracy']['positivity'];
+		$probabilityofSentenceBeingNegative = $sentimentAnalysisOfSentence['accuracy']['negativity'];
+		// return ($resultofAnalyzingSentence == 'negative') ? 'neg' : ($resultofAnalyzingSentence == 'positive') ? 'pos' : 'neu';
+		if($probabilityofSentenceBeingPositive > $probabilityofSentenceBeingNegative) {
+			$res = 'pos';
+		} else {
+			$res = 'neg';
+		}
+		return $res;
 
+
+		//Analysis package 2		
     	$analyzer = new Analyzer();
     	$scores  = $analyzer->getSentiment($string);
     	unset($scores['compound']);
     	$response = array_keys($scores, max($scores));
     	return $response[0];
 
+    	//Analysis package 1
     	$sentiment = new \PHPInsight\Sentiment();
 		$scores = $sentiment->score($string);
 		$response = $sentiment->categorise($string);
