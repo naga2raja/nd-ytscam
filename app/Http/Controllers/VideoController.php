@@ -650,8 +650,8 @@ class VideoController extends Controller
     public function detectSentiment($string){  
     	
     	$sat = new NdytscamSentimentAnalyzerTest(new NdytscamSentimentAnalyzer());
-    	$sat->trainAnalyzer(base_path().'\app\http\controllers\sentiment\trainingSet\data.neg', 'negative', 5000); //training with negative data
-		$sat->trainAnalyzer(base_path().'\app\http\controllers\sentiment\trainingSet\data.pos', 'positive', 5000); //trainign with positive data
+    	$sat->trainAnalyzer(app_path().'/Http/Controllers/sentiment/trainingSet/data.neg', 'negative', 5000); //training with negative data
+		$sat->trainAnalyzer(app_path().'/Http/Controllers/sentiment/trainingSet/data.pos', 'positive', 5000); //trainign with positive data
 		$sentimentAnalysisOfSentence = $sat->analyzeSentence($string);
 		$resultofAnalyzingSentence = $sentimentAnalysisOfSentence['sentiment'];
 		$probabilityofSentenceBeingPositive = $sentimentAnalysisOfSentence['accuracy']['positivity'];
