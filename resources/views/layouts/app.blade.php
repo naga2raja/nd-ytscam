@@ -284,6 +284,9 @@ header.bg-white.shadow + main {
     min-height: 400px;
 }
 .error {color: red; }
+a.btn.btn-default:hover {
+    color: #FFF !important;
+}
 </style>
 
     </head>
