@@ -205,7 +205,7 @@
                         for (i = 0; i < videos.length; ++i) {
                             console.log('snippet', videos[i]['snippet']);
                             if(videos[i]['snippet']) {
-                                var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
+                                var publishedAt = moment(videos[i]['snippet']['publishedAt']).fromNow(); //format('MMMM Do YYYY, h:mm a');
 
                                 list += '<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" style="cursor: pointer;"><div class="videoo">';
                                 list += '<div class="vid_thumbainl"><a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'">';
