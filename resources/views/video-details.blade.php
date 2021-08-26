@@ -116,13 +116,13 @@
                                     <i class="fa fa-info"></i>
                                 </button>
                             </h2>
-							<h3 class="aut-vid">
+							{{-- <h3 class="aut-vid">
 								<span>Autoplay </span>
 								<label class="switch">
 									<input type="checkbox">
 								  	<b class="slider round"></b>
 								</label> 
-							</h3>
+							</h3> --}}
 							<div class="clearfix"></div>
 						</div><!--vidz-prt end-->
                         @if($spamWords && $spamWords->spam_words)
