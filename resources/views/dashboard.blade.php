@@ -8,7 +8,7 @@
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                   <li class="breadcrumb-item active">Subscription</li>
                 </ol>
               </div>
@@ -17,21 +17,9 @@
         </section>
     </x-slot>
 
-    <div class="col-md-12">
-        <div class="card card-primary card-outline">                   
+                    
 
-            <div id="user_channels_list">
-                <div class="card-header current_channel_row">
-                    <div class="col-md-12">                                
-                        <div class="row">
-                            <div class="col-md-8"></div>
-                            <div class="col-md-4"> 
-                                <a onclick="history.go(-1);" class="btn btn-success pull-right rounded">  <i class="fa fa-arrow-left"></i> Back</a> 
-                                <div style="clear: both;"></div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <br>
+            <div id="user_channels_list">                   
 
                     <div class="row">                        
                         <div class="col-md-12">
@@ -39,7 +27,7 @@
                                   <!-- <b> Basic plan </b>: Delete up to 10 Comments. -->
                                   <!-- You have used - {{ $deletedCommentsCount }} -->
                                   <table class="table">
-                                      <thead class="thead-light">
+                                      <thead class="thead-light card-header">
                                           <tr>
                                               <th scope="col">#</th>
                                               <th scope="col">Plan name</th>
@@ -139,11 +127,7 @@
                       </div>
                     </div>
                     <!-- end pop-up -->
-                    
-              </div>
-          </div>
-
-      </div>
+                
   </div>
 
 

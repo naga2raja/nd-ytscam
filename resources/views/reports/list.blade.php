@@ -17,43 +17,17 @@
             </div><!-- /.container-fluid -->
         </section>
     </x-slot>
-
-
-    <div class="col-md-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        </div>        
-
-        <div class="row">                         
-            <div class="col-md-12">
-                <div class="card card-primary card-outline">                   
+                   
 
                     <div id="user_channels_list">
-                        <div class="card-header current_channel_row">
-                            <div class="col-md-12">                                
-                                <div class="row">
-                                    <div class="col-md-8"> 
-                                        <!--
-                                        <form method="GET" class="row">
-                                            <div class="col-md-4">
-                                                <input type="text" name="search" id="search" class="form-control" placeholder="Search" value="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="submit" name="submit" value="Search" class="btn btn-primary">
-                                            </div>
-                                        </form> -->
-                                    </div>
-                                    <div class="col-md-4"> 
-                                        <a href="{{ route('download') }}?download=true" class="btn btn-success pull-right rounded">  <i class="fa fa-download"></i>  Download </a>
-                                    </div>                            
-                                </div>
-                            </div>
-                            <br>
+                        <div class="current_channel_row">
+                            
 
                             <div class="col-md-12">                                
                                 <div class="row">
                                     <!-- Table -->
                                     <table class="table">
-                                        <thead class="thead-light">
+                                        <thead class="thead-light card-header">
                                             <tr>
                                                <th scope="col">#</th>
                                                <th scope="col">Comment Id</th>
@@ -98,13 +72,12 @@
                                 <div style="clear:both;"></div>
                             </div>
 
+                            <div class="col-md-12 text-center"> 
+                                <a href="{{ route('download') }}?download=true" class="btn btn-default rounded">  <i class="fa fa-download"></i>  Download </a>
+                            </div> 
+                            <div style="clear:both;"></div>
+
                         </div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </div>  
-    
+                    </div>   
 
 </x-app-layout>

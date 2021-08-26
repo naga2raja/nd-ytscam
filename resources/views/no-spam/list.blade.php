@@ -17,16 +17,10 @@
         </section>
     </x-slot>
 
-    <div class="col-md-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        </div>        
-
-        <div class="row">                         
-            <div class="col-md-12">
-                <div class="card card-primary card-outline">                   
+                 
 
                     <div id="user_channels_list">
-                        <div class="card-header current_channel_row">
+                        <div class="current_channel_row">
                             <div class="col-md-12">                                
                                 <div class="row">
                                     <div class="col-md-8"> 
@@ -35,12 +29,12 @@
                                                 <input type="text" name="search" id="search" class="form-control" placeholder="Search" value="{{ $searchValue }}">
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+                                                <input type="submit" name="submit" value="Search" class="btn btn-default rounded">
                                             </div>
                                         </form> 
                                     </div>
                                     <div class="col-md-4"> 
-                                        <a href="{{ route('no-spam-words.create') }}" class="btn btn-success pull-right rounded">Add  <i class="fa fa-plus"></i></a>
+                                        <a href="{{ route('no-spam-words.create') }}" class="btn btn-default float-right rounded">Add  <i class="fa fa-plus"></i></a>
                                     </div>                            
                                 </div>
                             </div>
@@ -50,7 +44,7 @@
                                 <div class="row">
                                     <!-- Table -->
                                     <table class="table">
-                                        <thead class="thead-light">
+                                        <thead class="thead-light card-header">
                                             <tr>
                                               <th scope="col">#</th>
                                               <th scope="col">No Spam Word / Text</th>
@@ -66,7 +60,7 @@
                                                 {{ $word->word }} 
                                             </td>                                    
                                             <td width="30px">
-                                                <a class="btn btn-primary" href="{{ route('no-spam-words.edit', $word->id) }}"> <i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-primary" href="{{ route('no-spam-words.edit', $word->id) }}"> <i class="fa fa-edit"></i></a>
                                             </td>
                                             <td width="30px">
                                                 <form onsubmit="return confirm('Are you sure?')" action="{{ route('no-spam-words.destroy', $word->id)}}" method="post">
@@ -100,10 +94,6 @@
 
                         </div>
                     </div>
-                </div>
-            
-            </div>
-        </div>
-    </div>  
+           
 
 </x-app-layout>

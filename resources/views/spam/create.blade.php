@@ -18,21 +18,10 @@
         </section>
     </x-slot>
 
-    <div class="col-md-12">
-        <div class="card card-primary card-outline">                   
+                       
 
-            <div id="user_channels_list">
-                <div class="card-header current_channel_row">
-                    <div class="col-md-12">                                
-                        <div class="row">
-                            <div class="col-md-8"></div>
-                            <div class="col-md-4"> 
-                                <a href="{{ route('spamwords.list') }}" class="btn btn-success pull-right rounded">  <i class="fa fa-arrow-left"></i> Back</a> 
-                                <div style="clear: both;"></div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <br>
+     
+                    
 
                     <div class="row">                        
                         <div class="col-md-12">
@@ -59,7 +48,7 @@
                                                     <div class="form-group row">  
                                                       <div class="col-sm-2"> </div>
                                                       <div class="col-sm-5"> 
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                            <button type="submit" class="btn btn-default">Save</button>
                                                       </div>
                                                     </div>
                                                 </form>
@@ -70,12 +59,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>  
 
 
 </x-app-layout>

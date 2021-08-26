@@ -662,7 +662,7 @@ class VideoController extends Controller
 		} else {
 			$res = 'neg';
 		}
-		return $res;
+		//return $res;
 
 
 		//Analysis package 2		

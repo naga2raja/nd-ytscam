@@ -24,18 +24,32 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ themeAsset('plugins/fontawesome-free/css/all.min.css') }}">
         <!-- Theme style -->
-        <link rel="stylesheet" href="{{ themeAsset('dist/css/adminlte.min.css') }}">
+        {{-- <link rel="stylesheet" href="{{ themeAsset('dist/css/adminlte.min.css') }}">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ themeAsset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ themeAsset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}"> --}}
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/animate.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/bootstrap.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/flatpickr.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/fontello.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/fontello-codes.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/thumbs-embedded.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/style.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/responsive.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ themeUrl('v2/css/color.css') }}">
 
-        <link rel="stylesheet" type="text/css" 
-     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">   
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
         
 
 <style>
+  nav li a.active {
+    color: #4a90e2;
+}
 /* 
 * {box-sizing: border-box;}
 
@@ -273,16 +287,27 @@ header.bg-white.shadow + main {
 </style>
 
     </head>
-    <body class="sidebar-mini layout-fixed">
-        <div class="loading" style="display:none;">Loading&#8230;</div>
+    <body>
+      <div class="wrapper hp_1">
         <div>
             @include('layouts.navigation')
 
-            
+            @if(request()->routeIs('video'))
+            <section class="banner-section">
+              <div class="container">
+                  <div class="banner-text">
+                      <h2>Welcome to ND-YTSCAM</h2>
+                      <a>No more Spam Comments</a>
+                  </div><!--banner-text end-->
+                  {{-- <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3> --}}
+              </div>
+          </section><!--banner-section end-->
+          @endif
 
             <!-- Page Content -->
             <!-- Content Wrapper. Contains page content -->
-          <div class="content-wrapper">
+          <section class="mn-sec">
+            <div class="container">
             <!-- Page Heading -->
             <header class="bg-white shadow">
                 <div class="">
@@ -292,19 +317,17 @@ header.bg-white.shadow + main {
             
             
           <!-- /.content-wrapper -->  
-            <main>
+            <div class="main-content">
                 {{ $slot }}
-            </main>
-            <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+            </div>
+            {{-- <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
               <i class="fas fa-chevron-up"></i>
-            </a>
+            </a> --}}
         </div>
+          </section>
 
-        <footer class="main-footer">
-          <div class="float-right d-none d-sm-block">
-            <b>Version</b> 1.0
-          </div>
-          <strong>Copyright &copy; 2021. Designed by CABC’S Group India
+        <footer class="main-footer pb-4 text-center">          
+            <p>Copyright &copy; 2021. Designed by CABC’S Group India</p>          
         </footer>
 
         </div>
@@ -349,13 +372,20 @@ header.bg-white.shadow + main {
           @endif
         </script>
         <!-- jQuery -->
-      <script src="{{ themeAsset('plugins/jquery/jquery.min.js') }}"></script>
+      {{-- <script src="{{ themeAsset('plugins/jquery/jquery.min.js') }}"></script>
       <!-- Bootstrap 4 -->
       <script src="{{ themeAsset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
       <!-- AdminLTE App -->
       <script src="{{ themeAsset('dist/js/adminlte.min.js') }}"></script>
       <!-- AdminLTE for demo purposes -->
-      <script src="{{ themeAsset('dist/js/demo.js') }}"></script>
+      <script src="{{ themeAsset('dist/js/demo.js') }}"></script> --}}
+
+      <script src="{{ themeUrl('v2/js/jquery.min.js') }}"></script>
+      <script src="{{ themeUrl('v2/js/popper.js') }}"></script>
+      <script src="{{ themeUrl('v2/js/bootstrap.min.js') }}"></script>
+      <script src="{{ themeUrl('v2/js/flatpickr.js') }}"></script>
+      <script src="{{ themeUrl('v2/js/script.js') }}"></script>
+
       <script src="{{ themeAsset('/') }}/assets/vendor/php-email-form/validate.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-k6/Bkb8Fxf/c1Tkyl39yJwcOZ1P4cRrJu77p83zJjN2Z55prbFHxPs9vN7q3l3+tSMGPDdoH51AEU8Vgo1cgAA==" crossorigin="anonymous"></script>
       @stack('scripts')
@@ -364,6 +394,6 @@ header.bg-white.shadow + main {
           $('[data-toggle="tooltip"]').tooltip()
         })
       </script>
-
+      </div>
     </body>
 </html>

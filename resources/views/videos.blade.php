@@ -1,6 +1,6 @@
 <x-app-layout>    
     <x-slot name="header">
-        <section class="content-header">
+        {{-- <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
@@ -13,88 +13,46 @@
               </div>
             </div>
           </div><!-- /.container-fluid -->
-        </section>
+        </section> --}}
     </x-slot>
-    <style type="text/css">       
-        /*.video_item.active{ background: #000; }*/
-       /* .channel_item.active{ background: #000; }*/
-.video_item, .channel_item {
-    
-}
-.video_item img.img-responsive {
-    width: 100%;
-}
-.video-list-thumbs{}
-.video-list-thumbs > li{
-    margin-bottom:12px;
-}
-.video-list-thumbs > li:last-child{}
-.video-list-thumbs > li > a{
-	display:block;
-	position:relative;
-	/* background-color: #EA4335; */
-	color: #000;
-	padding: 8px;
-	border-radius:3px
-    transition:all 500ms ease-in-out;
-    border-radius:4px;
-    border: 1px solid #eee;
-}
-.video-list-thumbs > li > a:hover{
-	box-shadow:0 2px 5px rgba(0,0,0,.3);
-	text-decoration:none
-}
-.video-list-thumbs h2{
-    bottom: 0;
-    font-size: 16px;
-    min-height: 50px;
-    margin: 8px 0 0;
-    color: #000;
-}
-.video-list-thumbs .glyphicon-play-circle{
-    font-size: 60px;
-    opacity: 0.6;
-    position: absolute;
-    right: 39%;
-    top: 31%;
-    text-shadow: 0 1px 3px rgba(0,0,0,.5);
-    transition:all 500ms ease-in-out;
-}
-.video-list-thumbs > li > a:hover .glyphicon-play-circle{
-	color:#fff;
-	opacity:1;
-	text-shadow:0 1px 3px rgba(0,0,0,.8);
-}
-.video-list-thumbs .duration{
-	background-color: rgba(0, 0, 0, 0.4);
-	border-radius: 2px;
-	color: #fff;
-	font-size: 11px;
-	font-weight: bold;
-	left: 12px;
-	line-height: 13px;
-	padding: 2px 3px 1px;
-	position: absolute;
-	top: 12px;
-    transition:all 500ms ease;
-}
-.video-list-thumbs > li > a:hover .duration{
-	background-color:#000;
-}
-@media (min-width:320px) and (max-width: 480px) { 
-	.video-list-thumbs .glyphicon-play-circle{
-    font-size: 35px;
-    right: 36%;
-    top: 27%;
-	}
-	.video-list-thumbs h2{
-		bottom: 0;
-		font-size: 12px;
-		height: 22px;
-		margin: 8px 0 0;
-	}
-}
-    </style>
+   
+<section class="vds-main">
+    <div class="vidz-row">
+        <div class="container">
+            
+            <div class="vidz_sec">
+                <div class="row mb-4">
+                <div class="col-md-6">
+                @foreach ($channelsList as $channel)                          
+                    <h3><img src="{{ $channel->snippet->thumbnails->default->url }}" width="80" style="display:none;border-radius: 50%;" >  {{ $channel->snippet->title }} Videos</h3>
+                @endforeach
+                </div>
+                <div class="col-md-6">
+                    <div class="search_form">
+                        <form>
+                          <input type="text" name="search_video_title" id="search_video_title" placeholder="Search Videos">
+                          <button type="button" onclick="getVideosList(false, false, false, true)">
+                            <i class="icon-search"></i>
+                          </button>
+                        </form>
+                      </div>
+                </div>
+                <br>
+                </div>
+
+            
+            <div style="clear: both"></div>
+                <div class="vidz_list">
+                    <div class="row" id="channelVideosList">
+
+                    </div>
+                    
+                    </div>
+                </div><!--vidz_list end-->
+            </div><!--vidz_videos end-->
+        </div>
+    </div><!--vidz-row end-->
+
     <div class="col-md-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -112,7 +70,7 @@
             </div> -->
         </div>        
 
-        <div class="row">
+        <div class="row" style="display: none;">
                          
             <div class="col-md-12">
                 <div class="card card-primary card-outline">
@@ -151,7 +109,7 @@
                         </div>
                     </section>
                     
-                    <div id="channelVideosList" class="card-body" style="display: none;max-height: 570px; overflow: overlay;">
+                    <div id="channelVideosList_old" class="card-body" style="display: none;max-height: 570px; overflow: overlay;">
                                    
                     </div>
 
@@ -182,7 +140,7 @@
             </div>
         </div>
 
-        <div id="search_comment_section" style="display: none;" class="rounded-t-xl overflow-hidden bg-gradient-to-r from-purple-50 to-purple-100 bg-white pt-8">
+        <div id="search_comment_section_old" style="display: none;" class="rounded-t-xl overflow-hidden bg-gradient-to-r from-purple-50 to-purple-100 bg-white pt-8">
             <div class="grid grid-cols-2 grid-rows-1 grid-flow-col gap-4">
                 <div>
                     <input type="text" name="search" id="searchText" placeholder="Search comments">
@@ -191,7 +149,6 @@
                 <div id="searchChannelCommentsList" class="bg-purple-500 rounded-md items-center justify-center text-white text-1xl p-3 mt-0" style="display: none;"></div >
             </div>
         </div>
-
 
 
 
@@ -239,9 +196,9 @@
                         console.log(result);
                         var list = '';   
                         if(!type && !token){                                                          
-                            list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
+                            // list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
                         }                     
-                        list += '<ul class="list-unstyled video-list-thumbs row">';
+                        // list += '<div class="row">';
                         videos = result.items;
 
                         var i;
@@ -250,26 +207,30 @@
                             if(videos[i]['snippet']) {
                                 var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
 
-                                list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
-                                list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
-                                list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
-                                list += '</a>';
-                                list += '</li>';                                
+                                list += '<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" style="cursor: pointer;"><div class="videoo">';
+                                list += '<div class="vid_thumbainl"><a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'">';
+                                list += '<!--<span class="vid-time">10:21</span>--> <span class="watch_later"><i class="icon-watch_later_fill"></i></span></a></div>';
+
+                                list += '<div class="video_info"><h3><a>'+ videos[i]['snippet']['title'] +'</a></h3> <small class="posted_dt">'+ publishedAt +'</small></div>';
+                                
+                                list += '</div></div>';                               
                             }
                         }
                         if(videos.length == 0) {
-                            list += '<li class="col-md-12"> <div class="alert alert-warning">No Videos found</div> </li>';
+                            list += '<div class="col-12 col-md-12"> <div class="alert alert-warning">No Videos found</div> </div>';
                         }
 
-                        list += '</ul>';
-                        $('#channelVideosList a.next_navigation').hide();
+                        // list += '</div>';
+                        $('#channelVideosList a.next_navigation, #channelVideosList .next_navigation').hide();
                         $('a.prev_navigation').hide();
 
                         if(result.prevPageToken) {
                             list += '<a class="prev_navigation" onclick="getVideosList(\''+id+'\', \'prev\', \''+result.prevPageToken+'\', '+ searchTxt+'\)">Previous</a>';
                         }
                         if(result.nextPageToken) {                        
-                            list += '<center><a class="next_navigation btn btn-danger"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\' ,'+ searchTxt+'\)">Load More</a></center>';
+                            // list += '<center><a class="next_navigation btn btn-danger"  onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\' ,'+ searchTxt+'\)">Load More</a></center>';
+
+                            list += '<section style="padding-top: 30px;width:100%;" onclick="getVideosList(\''+id+'\', \'next\', \''+result.nextPageToken+'\' ,'+ searchTxt+'\)" class="next_navigation more_items_sec text-center"><div class="container"><svg style="cursor:pointer" width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.1618 24.0001H0.838235C0.374412 24.0001 0 23.6261 0 23.1628V5.86052C0 5.39727 0.374412 5.02332 0.838235 5.02332H18.1618C18.6256 5.02332 19 5.39727 19 5.86052V23.1628C19 23.6261 18.6256 24.0001 18.1618 24.0001ZM1.67647 22.3256H17.3235V6.69773H1.67647V22.3256Z" fill="#9494A0"/> <g opacity="0.25"> <path opacity="0.25" d="M13.1324 4.18605C12.6685 4.18605 12.2941 3.81209 12.2941 3.34884V1.67442H6.70589V3.34884C6.70589 3.81209 6.33148 4.18605 5.86765 4.18605C5.40383 4.18605 5.02942 3.81209 5.02942 3.34884V0.83721C5.02942 0.373954 5.40383 0 5.86765 0H13.1324C13.5962 0 13.9706 0.373954 13.9706 0.83721V3.34884C13.9706 3.81209 13.5962 4.18605 13.1324 4.18605Z" fill="#9494A0"/></g><path d="M9.50001 19.3479C9.28487 19.3479 9.06972 19.267 8.90766 19.1024L5.92634 16.1275C5.59942 15.801 5.59942 15.2707 5.92634 14.9442C6.25325 14.6177 6.78413 14.6177 7.11104 14.9442L9.50001 17.3275L11.8862 14.9442C12.2131 14.6177 12.744 14.6177 13.0709 14.9442C13.3978 15.2707 13.3978 15.801 13.0709 16.1275L10.0924 19.1024C9.93031 19.267 9.71516 19.3479 9.50001 19.3479Z" fill="#9494A0"/><path d="M9.49999 18.4186C9.03617 18.4186 8.66176 18.0447 8.66176 17.5814V10.3256C8.66176 9.86236 9.03617 9.4884 9.49999 9.4884C9.96382 9.4884 10.3382 9.86236 10.3382 10.3256V17.5814C10.3382 18.0447 9.96382 18.4186 9.49999 18.4186Z" fill="#9494A0"/><g opacity="0.5"><path opacity="0.5" d="M15.6471 6.69764C15.1832 6.69764 14.8088 6.32369 14.8088 5.86043V4.18601H4.19118V5.86043C4.19118 6.32369 3.81677 6.69764 3.35294 6.69764C2.88912 6.69764 2.51471 6.32369 2.51471 5.86043V3.34881C2.51471 2.88555 2.88912 2.5116 3.35294 2.5116H15.6471C16.1109 2.5116 16.4853 2.88555 16.4853 3.34881V5.86043C16.4853 6.32369 16.1109 6.69764 15.6471 6.69764Z" fill="#9494A0"/></g></svg></div></section>';
                         }
 
                         $('#channelVideosList').show();
@@ -592,26 +553,29 @@
                         console.log('Search Videos:: ', result); 
                         var list = '';   
                         if(!type && !token){                                                          
-                            list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
-                        }                     
-                        list += '<ul class="list-unstyled video-list-thumbs row">';
+                            // list += '<h4 class="font-extrabold pt-2">Channel Videos </h4>';
+                        } 
+
+                        list += '<div class="row">';
                         videos = result.items;
 
                         var i;
                         for (i = 0; i < videos.length; ++i) {
                             var publishedAt = moment(videos[i]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a');
 
-                            list += '<li id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" class="video_item col-md-4" style="cursor: pointer;">';
-                            list += '<a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'" class="img-responsive" style="">';
-                            list += '<h2><strong>'+ videos[i]['snippet']['title'] +'</strong> - <i class="publish">'+ publishedAt +'</i> </h2>';
-                            list += '</a>';
-                            list += '</li>';
+                            list += '<div class="video_item col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" id="'+videos[i]["id"]["videoId"]+'" onclick="showAllComments(\''+videos[i]["id"]["videoId"]+'\')" style="cursor: pointer;"><div class="videoo">';
+                            list += '<div class="vid_thumbainl"><a><img src="'+ videos[i]['snippet']['thumbnails']['medium']['url'] +'">';
+                            list += '<span class="vid-time">10:21</span><span class="watch_later"><i class="icon-watch_later_fill"></i></span></a></div>';
+
+                            list += '<div class="video_info"><h3><a>'+ videos[i]['snippet']['title'] +'</a></h3> . <small class="posted_dt">'+ publishedAt +'</span>';
+                            
+                            list += '</div>';
                         }
                         if(videos.length == 0) {
                             list += '<li class="col-md-12"> <div class="alert alert-warning">No Videos found</div> </li>';
                         }
 
-                        list += '</ul>';
+                        list += '</div>';
                         $('#channelVideosList a.next_navigation').hide();
                         $('a.prev_navigation').hide();
 
