@@ -359,16 +359,18 @@ class VideoController extends Controller
 					$insertArr = []; 
 					foreach($commentIds as $comment) {						
 						$cmtId = $comment[0];
-						$message = $comment[1];
-						$deleteParentCommentIds[] = $cmtId;
-						$insertArr[] = [
-							'user_id' => Auth::user()->id,
-							'api_type' => 'delete',
-							'unit_cost' => '50',
-							'yt_video_id' => $request->video_id,
-							'yt_comment_id' => $cmtId,
-							'yt_comment' => $message
-						];
+						if($cmtId != 'all') {
+							$message = $comment[1];
+							$deleteParentCommentIds[] = $cmtId;
+							$insertArr[] = [
+								'user_id' => Auth::user()->id,
+								'api_type' => 'delete',
+								'unit_cost' => '50',
+								'yt_video_id' => $request->video_id,
+								'yt_comment_id' => $cmtId,
+								'yt_comment' => $message
+							];
+						}
 					}
 					$deleteComentIds = implode(',', $deleteParentCommentIds);		  				
 					$youtube->comments->setModerationStatus($deleteComentIds, 'rejected');
