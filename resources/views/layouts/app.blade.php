@@ -288,6 +288,8 @@ header.bg-white.shadow + main {
 
     </head>
     <body>
+      <div class="loading" style="display:none;">Loading&#8230;</div>
+        <div>
       <div class="wrapper hp_1">
         <div>
             @include('layouts.navigation')
