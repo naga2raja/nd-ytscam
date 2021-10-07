@@ -296,18 +296,7 @@ a.btn.btn-default:hover {
       <div class="wrapper hp_1">
         <div>
             @include('layouts.navigation')
-
-            @if(request()->routeIs('video'))
-            <section class="banner-section">
-              <div class="container">
-                  <div class="banner-text">
-                      <h2>Welcome to ND-YTSCAM</h2>
-                      <a>No more Spam Comments</a>
-                  </div><!--banner-text end-->
-                  {{-- <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3> --}}
-              </div>
-          </section><!--banner-section end-->
-          @endif
+            
 
             <!-- Page Content -->
             <!-- Content Wrapper. Contains page content -->
@@ -398,6 +387,9 @@ a.btn.btn-default:hover {
         $(function () {
           $('[data-toggle="tooltip"]').tooltip()
         })
+        function openPopupModal() {
+          $('#confirm_to_go_channel').modal('show');
+        }
       </script>
       </div>
     </body>

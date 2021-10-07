@@ -19,12 +19,12 @@
           </form>
         </div><!--search_form end--> --}}
         <ul class="controls-lv">
-          <li>
+          {{-- <li>
             <a href="#" title=""><i class="icon-message"></i></a>
           </li>
           <li>
             <a href="#" title=""><i class="icon-notification"></i></a>
-          </li>
+          </li> --}}
           <li class="user-log">
             <div class="user-ac-img">
               <img src="{{ themeUrl('v2/images/resources/user-img.png') }}" alt="">
@@ -38,13 +38,14 @@
                     <span>
                       <i class="icon-user"></i>
                     </span>
-                    <a href="https://studio.youtube.com/channel/" target="_blank" title="">My Channel</a>
+                    <a onclick="openPopupModal()" title="">Go to My Channel</a>
+                    
                   </li>
                   <li>
                     <span>
                       <i class="icon-paid_sub"></i>
                     </span>
-                    <a href="{{route('dashboard')}}" title="">Paid subscriptions</a>
+                    <a href="{{route('dashboard')}}" title="">Subscriptions</a>
                   </li>
                   {{-- <li>
                     <span>
@@ -119,7 +120,7 @@
           <ul>
             <li>
               <x-nav-link :href="route('video')" class="{{ request()->routeIs('video') ? 'active' : '' }}">                       
-                  Dashboard
+                  Videos
               </x-nav-link>
             </li>
             <li>
@@ -219,10 +220,10 @@
             </button>
           </li>
         </ul><!--shr_links end--> --}}
-        <ul class="vid_thums">
+        {{-- <ul class="vid_thums">
           <li>
             <a class="active" href="#" title=""><i class="icon-grid"></i></a>
-          </li>
+          </li> --}}
           {{-- <li>
             <a href="#" title="">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -234,7 +235,7 @@
               </svg>
             </a>
           </li> --}}
-        </ul><!--vid_status end-->
+        {{-- </ul> --}} <!--vid_status end--> 
         <div class="clearfix"></div>
       </div><!--btm_bar_content end-->
     </div>
@@ -602,3 +603,30 @@
   </aside>
 
   --}}
+
+  
+  <!-- The Modal -->
+<div class="modal" id="confirm_to_go_channel" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Go To My Channel</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <a href="https://studio.youtube.com/channel/" class="btn btn-default rounded" target="_blank">Go</a>
+      </div>
+
+    </div>
+  </div>
+</div>
