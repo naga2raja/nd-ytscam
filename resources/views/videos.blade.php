@@ -176,6 +176,13 @@
                  var searchTitleText = '';
                  if(searchTxt)  {
                     searchTitleText = document.getElementById("search_video_title").value;
+                    if(!searchTitleText || searchTitleText == '') {
+                        $('.loading').hide(); 
+                        $('#search_video_title').css({'border': '1px solid red'});
+                        $('#search_video_title').focus();
+                        return false;
+                    }
+                    $('#search_video_title').css('border', 'none');
                  }
 
                  CurrentChannelId = id;   
