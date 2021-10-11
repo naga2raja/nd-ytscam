@@ -785,7 +785,7 @@
 
           <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            {{-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> --}}
 
 
             <div class="social-links mt-3">
