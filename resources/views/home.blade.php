@@ -707,7 +707,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" maxlength="20" />
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" maxlength="20" onfocus="allowOnlyCharacters('name')" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
@@ -718,7 +718,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" maxlength="100" />
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" maxlength="100" onfocus="allowCharactersWithSpace('subject')" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
@@ -837,7 +837,7 @@
             </div>
             <div class="form-group">
               <label for="your_name" class="col-form-label">Your Name:</label>
-              <input type="text" class="form-control" name="your_name"  id="your_name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input type="text" class="form-control" name="your_name"  id="your_name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" maxlength="60" onfocus="allowOnlyCharacters('your_name')">
               <div class="validate"></div>
             </div>            
             <div class="form-group">
@@ -892,7 +892,35 @@
       var modal = $(this)
       modal.find('.modal-title').text('Contact for ' + recipient)
       modal.find('.modal-body input[id=recipient_name]').val(recipient)
-    })
+    });
+
+    (function($) {
+      $.fn.inputFilter = function(inputFilter) {
+        return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+          if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+          } else if (this.hasOwnProperty("oldValue")) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+          } else {
+            this.value = "";
+          }
+        });
+      };
+    }(jQuery));
+
+    function allowOnlyCharacters(id) {
+      $("#"+id).inputFilter(function(value) {
+        return /^[a-z]*$/i.test(value); });
+    }
+
+    function allowCharactersWithSpace(id) {
+      $("#"+id).inputFilter(function(value) {
+        return /^[a-z ]*$/i.test(value);
+      });
+    }
   </script>
     </body>
 </html>
