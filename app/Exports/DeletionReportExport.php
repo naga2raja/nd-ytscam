@@ -22,7 +22,8 @@ class DeletionReportExport implements FromCollection, WithHeadings
     public function collection()
     {
         return YoutubeApiRequest::where('user_id', Auth::user()->id)
-                ->select('yt_comment_id', 'yt_comment', 'yt_video_id', 'created_at')
+                ->select('yt_comment_id', 'yt_comment', 'yt_video_id')
+                ->selectRaw('DATE_FORMAT(convert_tz(created_at,"+00:00","+05:30"), "%d-%m-%Y %h:%i %p") as created_at ')
                 ->orderBy('id', 'DESC')
                 ->get();
     }
