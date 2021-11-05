@@ -360,6 +360,11 @@ class VideoController extends Controller
 					foreach($commentIds as $comment) {						
 						$cmtId = $comment[0];
 						if($cmtId != 'all') {
+							if($deletedCount && $deletedCount >= $deleteCommentsCount){
+					    		$output['status'] = 'Failed';
+					    		$output['message'] = 'Failed';
+					    		break;
+					    	}
 							$message = $comment[1];
 							$deleteParentCommentIds[] = $cmtId;
 							$insertArr[] = [
@@ -370,12 +375,14 @@ class VideoController extends Controller
 								'yt_comment_id' => $cmtId,
 								'yt_comment' => $message
 							];
-						}
+							$deletedCount++;
+						}						
+						
 					}
 					$deleteComentIds = implode(',', $deleteParentCommentIds);		  				
 					$youtube->comments->setModerationStatus($deleteComentIds, 'rejected');
 
-					$deletedCount++;
+					// $deletedCount++;
 
 					// $delete = new YoutubeApiRequest;
 					// $delete->user_id = Auth::user()->id;
