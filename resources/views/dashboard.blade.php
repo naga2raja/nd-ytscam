@@ -96,17 +96,17 @@
                               </div>
                               <div class="form-group">
                                 <label for="your_name" class="col-form-label">Your Name:</label>
-                                <input type="text" class="form-control" name="your_name"  id="your_name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{ Auth::user()->name }}">
+                                <input type="text" class="form-control" name="your_name"  id="your_name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{ Auth::user()->name }}" maxlength="30">
                                 <div class="validate"></div>
                               </div>            
                               <div class="form-group">
                                 <label for="your-email" class="col-form-label">Your Email:</label>
-                                <input type="email" class="form-control" name="your_email" id="your_email"  data-rule="email" data-msg="Please enter a valid email" value="{{ Auth::user()->email }}">
+                                <input type="email" class="form-control" name="your_email" id="your_email"  data-rule="email" data-msg="Please enter a valid email" value="{{ Auth::user()->email }}" maxlength="50" >
                                 <div class="validate"></div>
                               </div>
                               <div class="form-group">
                                 <label for="message_text" class="col-form-label">Message:</label>
-                                <textarea class="form-control" name="message_text" id="message_text" data-rule="required" data-msg="Please write something for us"></textarea>
+                                <textarea class="form-control" name="message_text" id="message_text" data-rule="required" data-msg="Please write something for us" maxlength="250" ></textarea>
                                 <div class="validate"></div>
                               </div>
                             

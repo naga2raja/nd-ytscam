@@ -37,7 +37,7 @@
                                                     <div class="form-group row">
                                                         <label for="spam_text" class="col-sm-2 col-form-label">Spam Word / Text</label>
                                                         <div class="col-sm-5">
-                                                          <input type="text" class="form-control" id="spam_text" name="spam_text" >
+                                                          <input type="text" class="form-control" id="spam_text" name="spam_text" maxlength="30">
                                                            @if($errors->any())
                                                             <br>
                                                                 {!! implode('', $errors->all('<div class="error">:message</div>')) !!}
