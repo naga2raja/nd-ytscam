@@ -65,7 +65,7 @@ class RegisteredUserController extends Controller
     {
         
         try {
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('google')->user();            
         } catch (\Exception $e) {
             return redirect('/login');
         }
@@ -80,12 +80,16 @@ class RegisteredUserController extends Controller
             $userSubscription = UserSubscription::where('user_id', $existingUser->id)->where('status', 1)->first();
             $subscription_id = $userSubscription->subscription_id;
             $userId = $existingUser->id;
+
+            $existingUser->avatar          = $user->avatar;
+            $existingUser->save();
         } else {
             // create a new user
             $newUser                  = new User;
             $newUser->name            = $user->name;
             $newUser->email           = $user->email;
             $newUser->google_id       = $user->id;
+            $newUser->avatar          = $user->avatar;
             $newUser->password        = Hash::make('dummy@321');
             // $newUser->avatar_original = $user->avatar_original;
             $newUser->save();            

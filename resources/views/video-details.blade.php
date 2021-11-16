@@ -23,8 +23,8 @@
 				<div class="col-lg-9">
 					<div class="mn-vid-sc single_video">
 						<div class="vid-1">
-							<div class="vid-pr">
-								<iframe width="100%" height="580" src="https://www.youtube.com/embed/{{ $videoId }}?controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="vid-pr1">
+								<iframe width="100%" height="420" src="https://www.youtube.com/embed/{{ $videoId }}?controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div><!--vid-pr end-->
 							{{-- <div class="vid-info">
 								<h3>Kingdom Come: Deliverance Funny Moments and Fails Compilation</h3>
@@ -374,7 +374,7 @@
 
                     list += '<li id="'+title+'_'+videos[i]['id']+'" class="'+title+'_comments"><div class="vcp_inf">';
                     list += '<div class="chekbox-lg"><label><input type="checkbox" id="'+title+'_cmt_'+videos[i]['id']+'" value="'+ videos[i]['id'] +'ndyt____ndyt'+videos[i]['snippet']['topLevelComment']['snippet']['textDisplay']+'" class="parent_comment" ><b class="checkmark"> </b>';    
-                    list += '<div class="vc_hd"> <img src="'+ '{{ themeUrl("v2/images/resources/th2.png") }}' +'" alt=""> </div>';
+                    list += '<div class="vc_hd"> <img src="'+ videos[i]['snippet']['topLevelComment']['snippet']['authorProfileImageUrl'] +'" alt=""> </div>';
                     
                     list += '<div class="coments"><h2>'+videos[i]['snippet']['topLevelComment']['snippet']['authorDisplayName']+' <small class="posted_dt"> . '+ moment(videos[i]['snippet']['topLevelComment']['snippet']['publishedAt']).fromNow()
 +'</small></h2>';
@@ -413,7 +413,7 @@
                                 replybadge += ' <span class="right badge badge-warning"> '+ replies[j]['sentiment_status']+'</span> ';
                             }
                             */
-                           list += '<div class="vcp_inf" style="padding-left: 25px;"> <div class="chekbox-lg"><label> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'ndyt____ndyt'+ replies[j]['snippet']['textDisplay'] +'">  <b class="checkmark"> </b> <div class="vc_hd">  <img src="'+ '{{ themeUrl("v2/images/resources/th2.png") }}' +'" alt=""></div>  <div class="coments"> <h2>'+replies[j]['snippet']['authorDisplayName'] +' <small class="posted_dt"> . '+moment(replies[j]['snippet']['publishedAt']).fromNow()+'</small></h2> <p>' + replies[j]['snippet']['textDisplay'] + ' </p> </div><!--coments end--> </label> </div></div>';
+                           list += '<div class="vcp_inf" style="padding-left: 25px;"> <div class="chekbox-lg"><label> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'ndyt____ndyt'+ replies[j]['snippet']['textDisplay'] +'">  <b class="checkmark"> </b> <div class="vc_hd">  <img src="'+ replies[j]['snippet']['authorProfileImageUrl'] +'" alt=""></div>  <div class="coments"> <h2>'+replies[j]['snippet']['authorDisplayName'] +' <small class="posted_dt"> . '+moment(replies[j]['snippet']['publishedAt']).fromNow()+'</small></h2> <p>' + replies[j]['snippet']['textDisplay'] + ' </p> </div><!--coments end--> </label> </div></div>';
                             console.log('TESt', replybadge, replies[j]);
                            
                             //list += '<div class="gap-3 ml-6" style="padding-left: 25px;"><div class="icheck-primary pr-2"> <input type="checkbox" id="child_cmt_'+title+ replies[j]['id'] +'" class="reply_comment" value="'+ replies[j]['id'] +'ndyt____ndyt'+ replies[j]['snippet']['textDisplay'] +'"> <label for="child_cmt_'+title+ replies[j]['id'] +'">' + replies[j]['snippet']['textDisplay'] + ' - ' + replies[j]['snippet']['authorDisplayName'] + ' ' + replybadge + ' ' + moment(replies[j]['snippet']['publishedAt']).format('MMMM Do YYYY, h:mm a') + '</label></div></div>';

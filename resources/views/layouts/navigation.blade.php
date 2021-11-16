@@ -27,11 +27,18 @@
           </li> --}}
           <li class="user-log">
             <div class="user-ac-img">
-              <img src="{{ themeUrl('v2/images/resources/user-img.png') }}" alt="">
+              @if(Auth::user()->avatar)
+                <img src="{{ Auth::user()->avatar }}" style="width:60px;" alt="">
+              @else 
+                  <img src="{{ themeUrl('v2/images/resources/user-img.png') }}" alt="">
+              @endif
             </div>
             <div class="account-menu">
               <h4>
-                {{ Auth::user()->name }} <span class="usr-status">{{ session()->get('subscription_plan') }}</span></h4>
+                {{ Auth::user()->name }}  <!-- <span class="usr-status">{{ session()->get('subscription_plan') }}</span> -->
+                  
+                </h4>
+                <p style="text-align: left;padding-left: 30px;">  {{ Auth::user()->email }} </p>
               <div class="sd_menu">
                 <ul class="mm_menu">
                   <li>

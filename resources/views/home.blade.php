@@ -62,8 +62,11 @@
 
         </ul>
       </nav><!-- .nav-menu -->
-
-     <a href="/login" class="get-started-btn scrollto">Sign in</a>
+      @if(Auth::user() )
+        <a href="{{route('video')}}" class="get-started-btn scrollto">Hi {{ Auth::user()->name }}</a>
+      @else
+      <a href="/login" class="get-started-btn scrollto">Sign in</a>
+     @endif
 
     </div>
   </header><!-- End Header -->
